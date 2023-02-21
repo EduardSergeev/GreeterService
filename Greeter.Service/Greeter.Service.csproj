@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Greater.Service</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="IndependentReserve.Grpc.Tools" Version="1.7.*" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.51.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Greeter.Common\Greeter.Common.csproj" GenerateGrpc="true"/>
+  </ItemGroup>  
+</Project>
