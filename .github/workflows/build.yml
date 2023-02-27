@@ -25,9 +25,14 @@ jobs:
     - name: dotnet test
       run: cd Greeter.Test && dotnet test
 
-  docker:
+  docker-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: docker build
       run: docker build -t greeter -f Greeter.Service/Dockerfile .
+    - name: docker test
+      run: |
+        docker run --rm -d --name greeter -p 5001:443 greeter
+        cd Greeter.Client && dotnet run
+        docker stop greeter
