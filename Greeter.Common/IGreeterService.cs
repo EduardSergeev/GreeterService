@@ -2,5 +2,5 @@
 
 public interface IGreeterService
 {
-    string SayHello(string name);    
+    string SayHello(string name);
 }
