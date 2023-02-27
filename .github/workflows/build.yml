@@ -24,3 +24,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: dotnet test
       run: cd Greeter.Test && dotnet test
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker build
+      run: docker build -t greeter -f Greeter.Service/Dockerfile .
