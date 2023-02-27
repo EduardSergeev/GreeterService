@@ -7,27 +7,27 @@ jobs:
   service:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: dotnet build
       run: cd Greeter.Service && dotnet build
 
   client:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: dotnet build
       run: cd Greeter.Client && dotnet build
 
   dotnet-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: dotnet test
       run: cd Greeter.Test && dotnet test
 
   docker:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: docker build
       run: docker build -t greeter -f Greeter.Service/Dockerfile .
