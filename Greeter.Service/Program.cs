@@ -1,10 +1,10 @@
-using Greater.Common;
-using Greater.Common.Grpc;
-using Greater.Service;
+using Greeter.Common;
+using Greeter.Common.Grpc;
+using Greeter.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
-    .AddScoped<IGreeterService, Greeter>()
+    .AddScoped<IGreeterService, GreeterImpl>()
     .AddGrpc();
 
 var app = builder.Build();
