@@ -1,4 +1,4 @@
-﻿using Greater.Common.Grpc;
+﻿using Greeter.Common;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,7 +10,30 @@ var config = host.Services
     .GetRequiredSection("GreeterService")
     .Get<GrpcConfiguration>();
 
-var client = new GreeterServiceGrpcClient(config, false);
+
+var client = new Greeter.Common.Grpc.GreeterServiceGrpcClient(config, false);
 
 WriteLine(client.SayHello("World"));
 WriteLine(await client.SayHelloAsync("Async"));
+
+
+var person = new Person
+{
+    Title = Greeter.Common.Title.Mr,
+    FirstName = "Agent",
+    LastName = "Smith",
+    Addresses = new[]
+    {
+        new Address
+        {
+            Street = "221B Baker Street",
+            City = "London",
+            Postcode = 90210
+        }
+    }
+};
+
+await foreach(var greeting in client.SayGreetingsAsync(person))
+{
+    WriteLine(greeting);
+}
