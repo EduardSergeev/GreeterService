@@ -1,6 +1,6 @@
 # gRPC/Protobuf code generation example
 
-[MS gRPC example](https://learn.microsoft.com/en-us/aspnet/core/grpc/) implemented with [IndependentReserve.Grpc.Tools](https://www.nuget.org/packages/IndependentReserve.Grpc.Tools#readme-body-tab)
+[MSDN gRPC example](https://learn.microsoft.com/en-us/aspnet/core/grpc/) implemented with [IndependentReserve.Grpc.Tools](https://www.nuget.org/packages/IndependentReserve.Grpc.Tools#readme-body-tab)
 
 [![Build Status](https://github.com/EduardSergeev/GreeterService/workflows/build/badge.svg)](https://github.com/EduardSergeev/GreeterService/actions?query=workflow%3Abuild+branch%3Amaster)
 
