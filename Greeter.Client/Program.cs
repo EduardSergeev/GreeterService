@@ -16,6 +16,7 @@ var client = new Greeter.Common.Grpc.GreeterServiceGrpcClient(config, false);
 WriteLine(client.SayHello("World"));
 WriteLine(await client.SayHelloAsync("Async"));
 
+var clientEx = new Greeter.Common.Grpc.GreeterExtendedServiceGrpcClient(config, false);
 
 var person = new Person
 {
@@ -33,7 +34,11 @@ var person = new Person
     }
 };
 
-await foreach(var greeting in client.SayGreetingsAsync(person))
+await foreach(var greeting in clientEx.SayGreetingsAsync(person))
 {
-    WriteLine(greeting);
+    WriteLine(greeting.Subject);
+    foreach(var line in greeting.Lines)
+    {
+        WriteLine(line);
+    }
 }
