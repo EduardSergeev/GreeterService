@@ -16,6 +16,10 @@ var client = new Greeter.Common.Grpc.GreeterServiceGrpcClient(config, false);
 WriteLine(client.SayHello("World"));
 WriteLine(await client.SayHelloAsync("Async"));
 
+
+WriteLine();
+
+
 var clientEx = new Greeter.Common.Grpc.GreeterExtendedServiceGrpcClient(config, false);
 
 var person = new Person
