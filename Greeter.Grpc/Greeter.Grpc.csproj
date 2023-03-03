@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>Greater.Grpc</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="IndependentReserve.Grpc.Tools" Version="1.9.106" />
+    <PackageReference Include="IndependentReserve.Grpc.Tools" Version="2.1.*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Greeter.Common\Greeter.Common.csproj" GenerateGrpc="true"/>

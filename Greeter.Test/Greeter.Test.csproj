@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>Greater.Grpc.Test</RootNamespace>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>Greater.Test</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="IndependentReserve.Grpc.Tools" Version="1.9.106" />
+    <PackageReference Include="IndependentReserve.Grpc.Tools" Version="2.1.*" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
     <PackageReference Include="xunit" Version="2.4.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
