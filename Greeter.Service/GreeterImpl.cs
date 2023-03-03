@@ -2,7 +2,7 @@ using Greeter.Common;
 
 namespace Greeter.Service;
 
-public class GreeterImpl : IGreeterService
+public class GreeterImpl : IGreeterService, IGreeterExtendedService
 {
     public string SayHello(string name)
     {
@@ -16,7 +16,10 @@ public class GreeterImpl : IGreeterService
             new Greeting
             {
                 Subject = $"Hello {person.Title} {person.LastName}",
-                Text = $"Wellcome dear {person.FirstName} {person.LastName}"
+                Lines = new[]
+                {
+                    $"Wellcome dear {person.FirstName} {person.LastName}!",
+                },
             }
         };
     }
