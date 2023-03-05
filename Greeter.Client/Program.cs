@@ -47,7 +47,7 @@ var person = new Person
     {
         DateOfBirth = new(DateTime.Now.Year - 10, 7, 1),
         Height = 5.5,
-        Length = 1.2M,
+        Length = 1.4M,
         Addresses = new Address[]
         {
             new()
