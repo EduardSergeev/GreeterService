@@ -26,8 +26,8 @@ public class GreeterImpl : IGreeterService, IGreeterExtendedService
         {
             "You details are:",
             $"DOB: {dob:dd MMMM yyyy}",
-            $"Height: {height}",
-            $"Length: {length}",
+            $"Height: {(int)height}'{height%1*10:0}\"",
+            $"Length: {length}\"",
             "",
         };
 
