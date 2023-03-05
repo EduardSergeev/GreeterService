@@ -1,4 +1,5 @@
 using Greeter.Common;
+using static System.Environment;
 
 namespace Greeter.Service;
 
@@ -11,27 +12,51 @@ public class GreeterImpl : IGreeterService, IGreeterExtendedService
 
     public IEnumerable<Greeting> SayGreetings(Person person)
     {
-        var addressLines = person.Addresses?.FirstOrDefault() switch
+        var name = person.Name;
+
+        var otherNames = person.OtherNames
+            .Select(name => name switch
+            {
+                var (_, first, second, _) =>
+                    $"\"{string.Join(' ', new[] { first, second, })}\""
+            });
+
+        var (dob, height, length, addresses) = person.Details;
+        var detailLines = new[]
+        {
+            "You details are:",
+            $"DOB: {dob:dd MMMM yyyy}",
+            $"Height: {height}",
+            $"Length: {length}",
+            "",
+        };
+
+        var addressLines = addresses?.FirstOrDefault() switch
         {
             null => Enumerable.Empty<string>(),
             Address address => new[]
             {
-                "Living at:",
-                address.Street,
+                "You live at:",
+                string.Join(NewLine, address.Street),
                 address.City,
                 address.State,
-                $"{address.Postcode}"
-            }.Where(l => l is not null)
+                address.Postcode?.ToString()
+            }.OfType<string>()
         };
+
         return new[]
         {
             new Greeting
             {
-                Subject = $"Hello {person.Title} {person.LastName}",
+                Subject = $"Hello {name.Title} {name.LastName}!",
                 Lines = new[]
                 {
-                    $"Wellcome dear {person.FirstName} {person.LastName}!",
+                    "",
+                    $"Dear {name.FirstName} {name.LastName}{(otherNames.Any() ?
+                        $" (aka: {string.Join(" and ", otherNames)})" : "")},",
+                    "",
                 }
+                .Concat(detailLines)
                 .Concat(addressLines)
             }
         };
