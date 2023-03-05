@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="IndependentReserve.Grpc.Tools" Version="2.1.*" />
+    <PackageReference Include="IndependentReserve.Grpc.Tools" Version="2.2.*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Greeter.Common\Greeter.Common.csproj" GenerateGrpc="true"/>
