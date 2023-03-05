@@ -24,7 +24,7 @@ public class GreeterImpl : IGreeterService, IGreeterExtendedService
         var (dob, height, length, addresses) = person.Details;
         var detailLines = new[]
         {
-            "You details are:",
+            "Your details are:",
             $"DOB: {dob:dd MMMM yyyy}",
             $"Height: {(int)height}'{height%1*10:0}\"",
             $"Length: {length}\"",
