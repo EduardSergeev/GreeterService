@@ -2,7 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
+using static Greeter.Common.Title;
 using static System.Console;
+
 
 using var host = Host.CreateDefaultBuilder(args).Build();
 var config = host.Services
@@ -24,20 +27,36 @@ var clientEx = new Greeter.Common.Grpc.GreeterExtendedServiceGrpcClient(config, 
 
 var person = new Person
 {
-    Title = Greeter.Common.Title.Mr,
-    FirstName = "Agent",
-    LastName = "Smith",
-    Addresses = new[]
+    Name = new()
     {
-        new Address
+        Title = Mr,
+        FirstName = "Eric",
+        LastName = "Cartman",
+    },
+    OtherNames = new()
+    {
+        new(Miss, "Erica", "Cartman"),
+        new(Miss, "Mitch", "Conner"),
+    },
+    Aliases = new[]
+    {
+        "The Coon",
+        "A.W.E.S.O.M.-O 4000",
+    },
+    Details = new()
+    {
+        DateOfBirth = new(DateTime.Now.Year - 10, 7, 1),
+        Height = 5.5,
+        Length = 1.2M,
+        Addresses = new Address[]
         {
-            Street = new[]
+            new()
             {
-                "221B Baker Street"
-            },
-            City = "London",
-            Postcode = 90210
-        }
+                Street = new[] { "28201 E. Bonanza St." },
+                City = "South Park",
+                State = "Colorado",
+            }
+        },
     }
 };
 
