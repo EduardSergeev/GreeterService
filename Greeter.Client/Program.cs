@@ -31,7 +31,10 @@ var person = new Person
     {
         new Address
         {
-            Street = "221B Baker Street",
+            Street = new[]
+            {
+                "221B Baker Street"
+            },
             City = "London",
             Postcode = 90210
         }

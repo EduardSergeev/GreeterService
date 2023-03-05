@@ -1,4 +1,5 @@
 using Greeter.Common;
+using static System.Environment;
 
 namespace Greeter.Service;
 
@@ -17,11 +18,11 @@ public class GreeterImpl : IGreeterService, IGreeterExtendedService
             Address address => new[]
             {
                 "Living at:",
-                address.Street,
+                string.Join(NewLine, address.Street),
                 address.City,
                 address.State,
                 $"{address.Postcode}"
-            }.Where(l => l is not null)
+            }.OfType<string>()
         };
         return new[]
         {
