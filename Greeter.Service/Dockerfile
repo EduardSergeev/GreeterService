@@ -13,7 +13,7 @@ RUN dotnet restore -r linux-musl-x64 ./Greeter.Service
 
 # Build and publish solution to /publish
 COPY . .
-RUN dotnet publish -c Release -r linux-musl-x64 --no-restore --self-contained -p:PublishTrimmed=True -o /publish Greeter.Service
+RUN dotnet publish -c Release -r linux-musl-x64 --no-restore --self-contained -o /publish Greeter.Service
 
 
 # Build runtime image
