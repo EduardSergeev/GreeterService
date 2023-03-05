@@ -1,6 +1,7 @@
 namespace Greeter.Common;
 
-public readonly record struct Address(
+public readonly record struct Address
+(
     string[] Street,
     string City,
     string? State,

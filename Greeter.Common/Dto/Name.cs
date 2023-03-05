@@ -1,6 +1,7 @@
 namespace Greeter.Common;
 
-public readonly record struct Name(
+public readonly record struct Name
+(
     Title Title,
     string FirstName,
     string LastName,
