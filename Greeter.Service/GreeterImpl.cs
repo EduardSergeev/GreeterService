@@ -21,7 +21,7 @@ public class GreeterImpl : IGreeterService, IGreeterExtendedService
                     $"\"{string.Join(' ', new[] { first, second, })}\""
             });
 
-        var (dob, height, length, addresses) = person.Details;
+        var (dob, height, length, _) = person.Details;
         var detailLines = new[]
         {
             "Your details are:",
@@ -31,18 +31,21 @@ public class GreeterImpl : IGreeterService, IGreeterExtendedService
             "",
         };
 
-        var addressLines = addresses?.FirstOrDefault() switch
-        {
-            null => Enumerable.Empty<string>(),
-            Address address => new[]
+        var addressLines = person.Details.Addresses
+            .Select(address => address switch
             {
-                "You live at:",
-                string.Join(NewLine, address.Street),
-                address.City,
-                address.State,
-                address.Postcode?.ToString()
-            }.OfType<string>()
-        };
+                var (street, city, state, postcode, country) =>
+                    street.Concat(new[]
+                    {
+                        city,
+                        state,
+                        postcode?.ToString(),
+                        country
+                    })
+            })
+            .Aggregate((l, r) => l.Append("").Concat(r))
+            .OfType<string>()
+            .Prepend("You live at:");
 
         return new[]
         {

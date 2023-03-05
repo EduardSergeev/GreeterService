@@ -55,7 +55,8 @@ var person = new Person
                 Street = new[] { "28201 E. Bonanza St." },
                 City = "South Park",
                 State = "Colorado",
-            }
+                Country = "USA",
+            },
         },
     }
 };
