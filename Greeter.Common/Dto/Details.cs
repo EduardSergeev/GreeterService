@@ -1,6 +1,7 @@
 namespace Greeter.Common;
 
-public readonly record struct PersonDetails(
+public readonly record struct Details
+(
     DateTime DateOfBirth,
     double Height,
     decimal Length,
