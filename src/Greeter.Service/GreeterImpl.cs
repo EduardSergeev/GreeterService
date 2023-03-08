@@ -1,10 +1,19 @@
 using Greeter.Common;
-using static System.Environment;
+using static System.Reflection.Assembly;
 
 namespace Greeter.Service;
 
 public class GreeterImpl : IGreeterService, IGreeterExtendedService
 {
+    private ILogger<GreeterImpl> Logger { get; }
+
+    public GreeterImpl(ILogger<GreeterImpl> logger)
+    {
+        Logger = logger;
+        var version = GetExecutingAssembly().GetName().Version;
+        Logger.LogInformation($"{nameof(GreeterImpl)}: version '{version}'");
+    }
+
     public string SayHello(string name)
     {
         return "Hello " + name;
