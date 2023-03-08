@@ -9,7 +9,7 @@ RUN dotnet dev-certs https
 COPY Greeter.Common/*.csproj ./Greeter.Common/
 COPY Greeter.Grpc/*.csproj ./Greeter.Grpc/
 COPY Greeter.Service/*.csproj ./Greeter.Service/
-RUN dotnet restore -r linux-musl-x64 ./Greeter.Service
+RUN dotnet restore -v d -r linux-musl-x64 ./Greeter.Service
 
 # Build and publish solution to /publish
 COPY . .
