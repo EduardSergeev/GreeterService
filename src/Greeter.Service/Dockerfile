@@ -6,14 +6,15 @@ WORKDIR /work
 RUN dotnet dev-certs https
 
 # Restore service projects
-COPY Greeter.Common/*.csproj ./Greeter.Common/
-COPY Greeter.Grpc/*.csproj ./Greeter.Grpc/
-COPY Greeter.Service/*.csproj ./Greeter.Service/
-RUN dotnet restore -v d -r linux-musl-x64 ./Greeter.Service
+COPY src/properties ./src/properties/
+COPY src/Greeter.Common/*.csproj ./src/Greeter.Common/
+COPY src/Greeter.Grpc/*.csproj ./src/Greeter.Grpc/
+COPY src/Greeter.Service/*.csproj ./src/Greeter.Service/
+RUN dotnet restore -v d -r linux-musl-x64 ./src/Greeter.Service
 
 # Build and publish solution to /publish
 COPY . .
-RUN dotnet publish -c Release -r linux-musl-x64 --no-restore --self-contained -o /publish Greeter.Service
+RUN dotnet publish -c Release -r linux-musl-x64 --self-contained -o ./.publish src/Greeter.Service
 
 
 # Build runtime image
@@ -23,6 +24,6 @@ ENV Logging__Console__FormatterName ""
 WORKDIR /app
 
 COPY --from=build-env /root/.dotnet/corefx/cryptography/x509stores /root/.dotnet/corefx/cryptography/x509stores
-COPY --from=build-env /publish .
+COPY --from=build-env /work/.publish .
 
 ENTRYPOINT ["/app/Greeter.Service"]
