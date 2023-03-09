@@ -5,13 +5,14 @@ namespace Greeter.Service;
 
 public class GreeterImpl : IGreeterService, IGreeterExtendedService
 {
+    private Version? Version { get; }
     private ILogger<GreeterImpl> Logger { get; }
 
     public GreeterImpl(ILogger<GreeterImpl> logger)
     {
+        Version = GetExecutingAssembly().GetName().Version;
         Logger = logger;
-        var version = GetExecutingAssembly().GetName().Version;
-        Logger.LogInformation($"{nameof(GreeterImpl)}: version '{version}'");
+        Logger.LogInformation($"{nameof(GreeterImpl)}: version '{Version}'");
     }
 
     public string SayHello(string name)
@@ -33,7 +34,7 @@ public class GreeterImpl : IGreeterService, IGreeterExtendedService
         var (dob, height, length, _) = person.Details;
         var detailLines = new[]
         {
-            "Your details are:",
+            $"Your details are:",
             $"DOB: {dob:dd MMMM yyyy}",
             $"Height: {(int)height}'{height%1*10:0}\"",
             $"Length: {length}\"",
@@ -56,6 +57,13 @@ public class GreeterImpl : IGreeterService, IGreeterExtendedService
             .OfType<string>()
             .Prepend("You live at:");
 
+        var footer = new[]
+        {
+            $"",
+            $"Sincerely yours,",
+            $"{nameof(GreeterImpl)}-{Version}",
+        };
+
         return new[]
         {
             new Greeting
@@ -70,6 +78,7 @@ public class GreeterImpl : IGreeterService, IGreeterExtendedService
                 }
                 .Concat(detailLines)
                 .Concat(addressLines)
+                .Concat(footer)
             }
         };
     }
