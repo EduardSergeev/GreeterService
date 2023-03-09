@@ -12,10 +12,10 @@ jobs:
       uses: EduardSergeev/project-version-action@main
       with:
         time-zone: Australia/Sydney
-        version-file: src/properties/Global.props
+        version-file: properties/Global.props
         version-stub: '0.0.0.0'      
     - name: dotnet publish '${{ env.VERSION }}'
-      run: dotnet publish -c Release src/Greeter.Service
+      run: dotnet publish -c Release Greeter.Service
 
   client:
     runs-on: ubuntu-latest
@@ -25,10 +25,10 @@ jobs:
       uses: EduardSergeev/project-version-action@main
       with:
         time-zone: Australia/Sydney
-        version-file: src/properties/Global.props
+        version-file: properties/Global.props
         version-stub: '0.0.0.0'      
     - name: dotnet publish '${{ env.VERSION }}'
-      run: dotnet publish -c Release src/Greeter.Client
+      run: dotnet publish -c Release Greeter.Client
 
   dotnet-test:
     runs-on: ubuntu-latest
@@ -38,10 +38,10 @@ jobs:
       uses: EduardSergeev/project-version-action@main
       with:
         time-zone: Australia/Sydney
-        version-file: src/properties/Global.props
+        version-file: properties/Global.props
         version-stub: '0.0.0.0'      
     - name: dotnet test '${{ env.VERSION }}'
-      run: dotnet test -c Release src/Greeter.Test
+      run: dotnet test -c Release Greeter.Test
 
   docker-test:
     runs-on: ubuntu-latest
@@ -51,14 +51,14 @@ jobs:
       uses: EduardSergeev/project-version-action@main
       with:
         time-zone: Australia/Sydney
-        version-file: src/properties/Global.props
+        version-file: properties/Global.props
         version-stub: '0.0.0.0'      
     - name: docker build '${{ env.VERSION }}'
-      run: docker build -t greeter-service -f src/Greeter.Service/Dockerfile .
+      run: docker build -t greeter-service -f Greeter.Service/Dockerfile .
     - name: docker run
       run: docker run --rm -d --name greeter-service -p 5001:443 greeter-service
     - name: dotnet run 
-      run: cd src/Greeter.Client && dotnet run -c Release
+      run: cd Greeter.Client && dotnet run -c Release
     - name: docker logs
       run: docker logs greeter-service
     - name: docker stop
