@@ -34,3 +34,10 @@ Docker:
 docker build -t greeter -f Greeter.Service/Dockerfile .
 docker run -it --rm -p 5001:443 greeter
 ```
+
+Benchmarks:
+
+```console
+cd Greeter.Bench
+dotnet run -c Release
+```

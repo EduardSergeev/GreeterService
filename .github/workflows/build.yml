@@ -58,8 +58,40 @@ jobs:
     - name: docker run
       run: docker run --rm -d --name greeter-service -p 5001:443 greeter-service
     - name: dotnet run 
-      run: cd Greeter.Client && dotnet run -c Release
+      run: |
+        cd Greeter.Client
+        dotnet run -c Release
     - name: docker logs
       run: docker logs greeter-service
     - name: docker stop
       run: docker stop greeter-service
+
+  bench-linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set version
+      uses: EduardSergeev/project-version-action@main
+      with:
+        time-zone: Australia/Sydney
+        version-file: properties/Global.props
+        version-stub: '0.0.0.0'      
+    - name: Conversion benchmarks '${{ env.VERSION }}'
+      run: |
+        cd Greeter.Bench
+        dotnet run -c Release
+
+  bench-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set version
+      uses: EduardSergeev/project-version-action@main
+      with:
+        time-zone: Australia/Sydney
+        version-file: properties/Global.props
+        version-stub: '0.0.0.0'      
+    - name: Conversion benchmarks '${{ env.VERSION }}'
+      run: |
+        cd Greeter.Bench
+        dotnet run -c Release
