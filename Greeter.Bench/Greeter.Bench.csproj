@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\properties\Global.props" />
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="IndependentReserve.Grpc.Tools" Version="2.2.*" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.5" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Greeter.Common\Greeter.Common.csproj" GenerateGrpc="true" />
-  </ItemGroup>  
+    <ProjectReference Include="..\Greeter.Grpc\Greeter.Grpc.csproj" />
+  </ItemGroup>
 </Project>

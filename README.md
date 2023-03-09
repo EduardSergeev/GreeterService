@@ -31,6 +31,13 @@ dotnet test
 Docker:
 
 ```console
-docker build -t greeter -f Greeter.Service/Dockerfile .
-docker run -it --rm -p 5001:443 greeter
+docker build -t greeter-service -f Greeter.Service/Dockerfile .
+docker run -it --rm -p 5001:443 greeter-service
+```
+
+Benchmarks:
+
+```console
+cd Greeter.Bench
+dotnet run -c Release
 ```
