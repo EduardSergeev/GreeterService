@@ -7,9 +7,6 @@ using static Greeter.Common.Title;
 using Dto = Greeter.Common.Person;
 using Proto = Greeter.Common.Grpc.Person;
 
-// using Dto = Greeter.Common.Address;
-// using Proto = Greeter.Common.Grpc.Address;
-
 namespace Greeter.Bench;
 
 [MemoryDiagnoser]
@@ -51,13 +48,6 @@ public class Benchmark
             },
         }
     };
-
-    // private static readonly Dto Dto = new Dto
-    // {
-    //     Street = "221B Baker Street",
-    //     City = "London",
-    //     Postcode = 90210,
-    // };
 
 
     private static readonly Proto Proto = Dto;
