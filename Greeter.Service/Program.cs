@@ -1,14 +1,21 @@
 using Greeter.Common;
 using Greeter.Common.Grpc;
-using Greeter.Service;
 
-var builder = WebApplication.CreateBuilder(args);
-builder.Services
-    .AddScoped<IGreeterService, GreeterImpl>()
-    .AddScoped<IGreeterExtendedService, GreeterImpl>()
-    .AddGrpc();
+namespace Greeter.Services;
 
-var app = builder.Build();
-app.MapGrpcService<GreeterServiceGrpcService>();
-app.MapGrpcService<GreeterExtendedServiceGrpcService>();
-app.Run();
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Services
+            .AddScoped<IGreeterService, Greeter>()
+            .AddScoped<IGreeterExtendedService, GreeterExtended>()
+            .AddGrpc();
+
+        var app = builder.Build();
+        app.MapGrpcService<GreeterServiceGrpcService>();
+        app.MapGrpcService<GreeterExtendedServiceGrpcService>();
+        app.Run();
+    }
+}

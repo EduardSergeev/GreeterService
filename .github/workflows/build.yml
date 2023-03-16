@@ -60,10 +60,7 @@ jobs:
     - name: dotnet run 
       run: |
         cd Greeter.Client
-        # First call to service is slower due to AutoMapper initialisation
-        dotnet run -c Release > /dev/null
-        # For proper gRPC timing in service logs
-        dotnet run --no-build -c Release
+        dotnet run -c Release
     - name: docker logs
       run: docker logs greeter-service
     - name: docker stop
