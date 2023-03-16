@@ -1,5 +1,7 @@
 using Ir.Common.Configuration.Grpc;
 
+namespace Greeter.Client.Configuration;
+
 public class GrpcConfiguration : IGrpcServiceConfiguration
 {
     public string Address { get; set; } = "http://localhost:5000";

@@ -1,4 +1,5 @@
-﻿using Greeter.Common;
+﻿using Greeter.Client.Configuration;
+using Greeter.Common;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -61,7 +62,45 @@ var person = new Person
     }
 };
 
-await foreach(var greeting in clientEx.SayGreetingsAsync(person))
+#pragma warning disable CS1998
+async IAsyncEnumerable<Person> People()
+{
+    yield return person;
+    yield return person;
+}
+
+
+WriteGreeting(clientEx.SayGreeting(person));
+WriteGreeting(await clientEx.SayGreetingAsync(person));
+
+foreach(var greeting in clientEx.SayGreetings(People()))
+{
+    WriteGreeting(greeting);
+}
+foreach(var greeting in await clientEx.SayGreetingsAsync(People()))
+{
+    WriteGreeting(greeting);
+}
+
+foreach(var line in clientEx.StreamGreeting(person))
+{
+    WriteLine(line);
+}
+await foreach(var line in clientEx.StreamGreetingAsync(person))
+{
+    WriteLine(line);
+}
+
+foreach(var greeting in clientEx.StreamGreetings(People()))
+{
+    WriteGreeting(greeting);
+}
+await foreach(var greeting in clientEx.StreamGreetingsAsync(People()))
+{
+    WriteGreeting(greeting);
+}
+
+void WriteGreeting(Greeting greeting)
 {
     WriteLine(greeting.Subject);
     foreach(var line in greeting.Lines)
