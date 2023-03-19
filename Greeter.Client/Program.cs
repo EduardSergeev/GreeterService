@@ -77,7 +77,7 @@ foreach(var greeting in clientEx.SayGreetings(People()))
 {
     WriteGreeting(greeting);
 }
-foreach(var greeting in await clientEx.SayGreetingsAsync(People()))
+await foreach(var greeting in clientEx.SayGreetingsAsync(People()))
 {
     WriteGreeting(greeting);
 }
