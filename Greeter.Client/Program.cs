@@ -62,11 +62,13 @@ var person = new Person
     }
 };
 
-#pragma warning disable CS1998
-async IAsyncEnumerable<Person> People()
+IEnumerable<Person> People()
 {
     yield return person;
-    yield return person;
+    yield return person with
+    {
+        Name = person.OtherNames[0]
+    };
 }
 
 
@@ -91,14 +93,15 @@ await foreach(var line in clientEx.StreamGreetingAsync(person))
     WriteLine(line);
 }
 
-foreach(var greeting in clientEx.StreamGreetings(People()))
+foreach(var line in clientEx.StreamGreetings(People()))
 {
-    WriteGreeting(greeting);
+    WriteLine(line);
 }
-await foreach(var greeting in clientEx.StreamGreetingsAsync(People()))
+await foreach(var line in clientEx.StreamGreetingsAsync(People()))
 {
-    WriteGreeting(greeting);
+    WriteLine(line);
 }
+
 
 void WriteGreeting(Greeting greeting)
 {

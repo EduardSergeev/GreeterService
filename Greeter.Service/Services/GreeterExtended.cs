@@ -21,28 +21,21 @@ public class GreeterExtended : IGreeterExtendedService
         return GenerateGreeting(person);
     }
 
-    public IEnumerable<Greeting> SayGreetings(IAsyncEnumerable<Person> people)
+    public IEnumerable<Greeting> SayGreetings(IEnumerable<Person> people)
     {
-        return people.ToBlockingEnumerable().Select(GenerateGreeting);
+        return people.Select(GenerateGreeting);
     }
 
-    #pragma warning disable CS1998
-    public async IAsyncEnumerable<string> StreamGreetingAsync(Person person)
+    public IEnumerable<string> StreamGreeting(Person person)
     {
         var (subject, lines) = GenerateGreeting(person);
-        yield return subject;
-        foreach(var line in lines)
-        {
-            yield return line;
-        }
+        return lines.Prepend(subject);
     }
 
-    public async IAsyncEnumerable<Greeting> StreamGreetingsAsync(IAsyncEnumerable<Person> people)
+    public IEnumerable<string> StreamGreetings(IEnumerable<Person> people)
     {
-        await foreach(var person in people)
-        {
-            yield return GenerateGreeting(person);
-        }
+        var greetings = people.Select(GenerateGreeting);
+        return greetings.SelectMany(greeting => greeting.Lines.Prepend(greeting.Subject));
     }
 
 

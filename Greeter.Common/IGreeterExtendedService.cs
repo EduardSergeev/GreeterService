@@ -3,7 +3,7 @@
 public interface IGreeterExtendedService
 {
     Greeting SayGreeting(Person person);
-    IEnumerable<Greeting> SayGreetings(IAsyncEnumerable<Person> people);
-    IAsyncEnumerable<string> StreamGreetingAsync(Person person);
-    IAsyncEnumerable<Greeting> StreamGreetingsAsync(IAsyncEnumerable<Person> people);
+    IEnumerable<Greeting> SayGreetings(IEnumerable<Person> people);
+    IEnumerable<string> StreamGreeting(Person person);
+    IEnumerable<string> StreamGreetings(IEnumerable<Person> people);
 }
