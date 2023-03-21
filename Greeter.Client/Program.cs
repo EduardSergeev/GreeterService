@@ -62,24 +62,28 @@ var person = new Person
     }
 };
 
-IEnumerable<Person> People()
+var people = person.OtherNames
+    .Select(otherName => person with { Name = otherName })
+    .Prepend(person);
+
+void WriteGreeting(Greeting greeting)
 {
-    yield return person;
-    yield return person with
+    WriteLine(greeting.Subject);
+    foreach(var line in greeting.Lines)
     {
-        Name = person.OtherNames[0]
-    };
+        WriteLine(line);
+    }
 }
 
 
 WriteGreeting(clientEx.SayGreeting(person));
 WriteGreeting(await clientEx.SayGreetingAsync(person));
 
-foreach(var greeting in clientEx.SayGreetings(People()))
+foreach(var greeting in clientEx.SayGreetings(people))
 {
     WriteGreeting(greeting);
 }
-await foreach(var greeting in clientEx.SayGreetingsAsync(People()))
+await foreach(var greeting in clientEx.SayGreetingsAsync(people))
 {
     WriteGreeting(greeting);
 }
@@ -93,21 +97,21 @@ await foreach(var line in clientEx.StreamGreetingAsync(person))
     WriteLine(line);
 }
 
-foreach(var line in clientEx.StreamGreetings(People()))
+foreach(var line in clientEx.StreamGreetings(people, new[] { "---" }))
 {
     WriteLine(line);
 }
-await foreach(var line in clientEx.StreamGreetingsAsync(People()))
+await foreach(var line in clientEx.StreamGreetingsAsync(people, new[] { "---", "---", "---" }))
 {
     WriteLine(line);
 }
 
-
-void WriteGreeting(Greeting greeting)
+foreach(var line in clientEx.StreamGreetingsEx(people.Select((p, i) => (p, new[] { $"-{i}-" }))))
 {
-    WriteLine(greeting.Subject);
-    foreach(var line in greeting.Lines)
-    {
-        WriteLine(line);
-    }
+    WriteLine(line);
+}
+await foreach(var line in clientEx.StreamGreetingsExAsync(people.Select(p => (p, new[] { "---", $"{DateTime.Now.Millisecond}", "---" }))))
+{
+    await Task.Delay(TimeSpan.FromMilliseconds(1));
+    WriteLine(line);
 }

@@ -1,43 +1,15 @@
 using Greeter.Common;
-using static System.Reflection.Assembly;
 
 namespace Greeter.Services;
 
 public class GreeterExtended : IGreeterExtendedService
 {
-    private Version? Version { get; }
-    private ILogger<GreeterExtended> Logger { get; }
+    private Version Version { get; }
 
-    public GreeterExtended(ILogger<GreeterExtended> logger)
+    public GreeterExtended(Version version)
     {
-        Version = GetExecutingAssembly().GetName().Version;
-        Logger = logger;
-        Logger.LogInformation($"{nameof(GreeterExtended)}: version '{Version}'");
+        Version = version;
     }
-
-
-    public Greeting SayGreeting(Person person)
-    {
-        return GenerateGreeting(person);
-    }
-
-    public IEnumerable<Greeting> SayGreetings(IEnumerable<Person> people)
-    {
-        return people.Select(GenerateGreeting);
-    }
-
-    public IEnumerable<string> StreamGreeting(Person person)
-    {
-        var (subject, lines) = GenerateGreeting(person);
-        return lines.Prepend(subject);
-    }
-
-    public IEnumerable<string> StreamGreetings(IEnumerable<Person> people)
-    {
-        var greetings = people.Select(GenerateGreeting);
-        return greetings.SelectMany(greeting => greeting.Lines.Prepend(greeting.Subject));
-    }
-
 
     private Greeting GenerateGreeting(Person person)
     {
@@ -81,6 +53,7 @@ public class GreeterExtended : IGreeterExtendedService
             $"",
             $"Sincerely yours,",
             $"{nameof(GreeterExtended)}-{Version}",
+            $"",
         };
 
         return new Greeting
@@ -98,4 +71,36 @@ public class GreeterExtended : IGreeterExtendedService
             .Concat(footer)
         };
     }
+
+
+    public Greeting SayGreeting(Person person) =>
+        GenerateGreeting(person);
+
+    public IEnumerable<Greeting> SayGreetings(IEnumerable<Person> people) =>
+        people.Select(GenerateGreeting);
+
+    public IEnumerable<string> StreamGreeting(Person person) =>
+        GenerateGreeting(person) switch
+        {
+            var (subject, lines) => lines.Prepend(subject)
+        };
+
+    public IEnumerable<string> StreamGreetings(IEnumerable<Person> people, string[] delimiter) =>
+        people
+            .Select(GenerateGreeting)
+            .Select(greeting => greeting.Lines.Prepend(greeting.Subject))
+            .Aggregate((l, r) => l.Concat(delimiter).Concat(r));
+
+    public IEnumerable<string> StreamGreetingsEx(IEnumerable<(Person Person, string? Footer)> people) =>
+        from item in people
+        let greeting = GenerateGreeting(item.Person)
+        let lines = greeting.Lines.Prepend(greeting.Subject)
+        from line in item.Footer is null ? lines : lines.Append(item.Footer)
+        select line;
+
+    public IEnumerable<string> StreamGreetingsEx(IEnumerable<(Person Person, string[] Footer)> people) =>
+        from item in people
+        let greeting = GenerateGreeting(item.Person)
+        from line in greeting.Lines.Prepend(greeting.Subject).Concat(item.Footer)
+        select line;
 }
