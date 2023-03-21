@@ -9,11 +9,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set version
-      uses: EduardSergeev/project-version-action@main
+      uses: EduardSergeev/project-version-action@v5.1
       with:
         time-zone: Australia/Sydney
         version-file: properties/Global.props
-        version-stub: '0.0.0.0'      
     - name: dotnet publish '${{ env.VERSION }}'
       run: dotnet publish -c Release Greeter.Service
 
@@ -22,11 +21,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set version
-      uses: EduardSergeev/project-version-action@main
+      uses: EduardSergeev/project-version-action@v5.1
       with:
         time-zone: Australia/Sydney
         version-file: properties/Global.props
-        version-stub: '0.0.0.0'      
     - name: dotnet publish '${{ env.VERSION }}'
       run: dotnet publish -c Release Greeter.Client
 
@@ -35,11 +33,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set version
-      uses: EduardSergeev/project-version-action@main
+      uses: EduardSergeev/project-version-action@v5.1
       with:
         time-zone: Australia/Sydney
         version-file: properties/Global.props
-        version-stub: '0.0.0.0'      
     - name: dotnet test '${{ env.VERSION }}'
       run: dotnet test -c Release Greeter.Test
 
@@ -48,11 +45,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set version
-      uses: EduardSergeev/project-version-action@main
+      uses: EduardSergeev/project-version-action@v5.1
       with:
         time-zone: Australia/Sydney
         version-file: properties/Global.props
-        version-stub: '0.0.0.0'      
     - name: docker build '${{ env.VERSION }}'
       run: docker build -t greeter-service -f Greeter.Service/Dockerfile .
     - name: docker run
@@ -71,11 +67,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set version
-      uses: EduardSergeev/project-version-action@main
+      uses: EduardSergeev/project-version-action@v5.1
       with:
         time-zone: Australia/Sydney
         version-file: properties/Global.props
-        version-stub: '0.0.0.0'      
     - name: Conversion benchmarks '${{ env.VERSION }}'
       run: |
         cd Greeter.Bench
@@ -86,11 +81,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set version
-      uses: EduardSergeev/project-version-action@main
+      uses: EduardSergeev/project-version-action@v5.1
       with:
         time-zone: Australia/Sydney
         version-file: properties/Global.props
-        version-stub: '0.0.0.0'      
     - name: Conversion benchmarks '${{ env.VERSION }}'
       run: |
         cd Greeter.Bench
