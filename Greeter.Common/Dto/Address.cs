@@ -5,6 +5,6 @@ public readonly record struct Address
     string[] Street,
     string City,
     string? State,
-    int? Postcode,
+    uint? Postcode,
     string? Country
 );
