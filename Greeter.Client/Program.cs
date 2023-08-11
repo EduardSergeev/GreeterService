@@ -57,6 +57,7 @@ var person = new Person
                 City = "South Park",
                 State = "Colorado",
                 Country = "USA",
+                Postcode = 80440
             },
         },
     }
