@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Greeter.Bench.Benchmark-20230823-055426</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
+Intel Xeon Platinum 8171M CPU 2.60GHz, 1 CPU, 2 logical and 2 physical cores
+.NET SDK=7.0.400
+  [Host]     : .NET 7.0.10 (7.0.1023.36312), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.10 (7.0.1023.36312), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>    Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>DtoToProto</td><td>2.120 &mu;s</td><td>0.0293 &mu;s</td><td>0.0274 &mu;s</td><td>0.0839</td><td>1608 B</td>
+</tr><tr><td>ProtoSerialize</td><td>2.468 &mu;s</td><td>0.0270 &mu;s</td><td>0.0211 &mu;s</td><td>-</td><td>1 B</td>
+</tr><tr><td>DtoSerialize</td><td>4.939 &mu;s</td><td>0.0273 &mu;s</td><td>0.0242 &mu;s</td><td>0.0839</td><td>1609 B</td>
+</tr><tr><td>ProtoDeserialize</td><td>2.700 &mu;s</td><td>0.0281 &mu;s</td><td>0.0262 &mu;s</td><td>0.0992</td><td>1880 B</td>
+</tr><tr><td>ProtoToDto</td><td>4.126 &mu;s</td><td>0.0432 &mu;s</td><td>0.0404 &mu;s</td><td>0.0916</td><td>1760 B</td>
+</tr><tr><td>DtoDeserialize</td><td>7.312 &mu;s</td><td>0.0610 &mu;s</td><td>0.0571 &mu;s</td><td>0.1907</td><td>3640 B</td>
+</tr><tr><td>JsonSerialize</td><td>3.911 &mu;s</td><td>0.0257 &mu;s</td><td>0.0240 &mu;s</td><td>0.0381</td><td>824 B</td>
+</tr><tr><td>JsonDeserialize</td><td>7.160 &mu;s</td><td>0.0752 &mu;s</td><td>0.0703 &mu;s</td><td>0.1068</td><td>2016 B</td>
+</tr></tbody></table>
+</body>
+</html>
