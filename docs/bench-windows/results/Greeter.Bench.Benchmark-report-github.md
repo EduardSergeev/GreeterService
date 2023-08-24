@@ -10,11 +10,11 @@ Intel Xeon Platinum 8272CL CPU 2.60GHz, 1 CPU, 2 logical and 2 physical cores
 ```
 |           Method |     Mean |     Error |    StdDev |   Gen0 | Allocated |
 |----------------- |---------:|----------:|----------:|-------:|----------:|
-|       DtoToProto | 1.719 μs | 0.0167 μs | 0.0156 μs | 0.0858 |    1608 B |
-|   ProtoSerialize | 2.081 μs | 0.0094 μs | 0.0088 μs |      - |       1 B |
-|     DtoSerialize | 4.050 μs | 0.0164 μs | 0.0153 μs | 0.0839 |    1609 B |
-| ProtoDeserialize | 2.060 μs | 0.0223 μs | 0.0198 μs | 0.0992 |    1880 B |
-|       ProtoToDto | 3.395 μs | 0.0090 μs | 0.0079 μs | 0.0916 |    1760 B |
-|   DtoDeserialize | 5.812 μs | 0.0435 μs | 0.0407 μs | 0.1907 |    3640 B |
-|    JsonSerialize | 3.292 μs | 0.0036 μs | 0.0034 μs | 0.0420 |     824 B |
-|  JsonDeserialize | 5.905 μs | 0.0164 μs | 0.0145 μs | 0.1068 |    2016 B |
+|       DtoToProto | 1.680 μs | 0.0111 μs | 0.0104 μs | 0.0858 |    1608 B |
+|   ProtoSerialize | 2.121 μs | 0.0172 μs | 0.0152 μs |      - |       1 B |
+|     DtoSerialize | 4.003 μs | 0.0118 μs | 0.0105 μs | 0.0839 |    1609 B |
+| ProtoDeserialize | 2.101 μs | 0.0074 μs | 0.0066 μs | 0.0992 |    1880 B |
+|       ProtoToDto | 3.323 μs | 0.0089 μs | 0.0084 μs | 0.0916 |    1760 B |
+|   DtoDeserialize | 5.826 μs | 0.0230 μs | 0.0215 μs | 0.1907 |    3640 B |
+|    JsonSerialize | 3.271 μs | 0.0123 μs | 0.0109 μs | 0.0420 |     824 B |
+|  JsonDeserialize | 5.937 μs | 0.0281 μs | 0.0262 μs | 0.1068 |    2016 B |

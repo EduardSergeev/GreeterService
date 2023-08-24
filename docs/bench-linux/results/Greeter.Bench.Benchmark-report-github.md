@@ -10,11 +10,11 @@ Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 ```
 |           Method |     Mean |     Error |    StdDev |   Gen0 | Allocated |
 |----------------- |---------:|----------:|----------:|-------:|----------:|
-|       DtoToProto | 1.693 μs | 0.0098 μs | 0.0082 μs | 0.0629 |    1608 B |
-|   ProtoSerialize | 1.957 μs | 0.0016 μs | 0.0015 μs |      - |       1 B |
-|     DtoSerialize | 4.047 μs | 0.0137 μs | 0.0128 μs | 0.0610 |    1609 B |
-| ProtoDeserialize | 2.199 μs | 0.0417 μs | 0.0390 μs | 0.0725 |    1880 B |
-|       ProtoToDto | 3.310 μs | 0.0098 μs | 0.0087 μs | 0.0687 |    1760 B |
-|   DtoDeserialize | 5.892 μs | 0.0274 μs | 0.0257 μs | 0.1450 |    3640 B |
-|    JsonSerialize | 3.458 μs | 0.0063 μs | 0.0059 μs | 0.0305 |     824 B |
-|  JsonDeserialize | 6.054 μs | 0.0394 μs | 0.0368 μs | 0.0763 |    2016 B |
+|       DtoToProto | 1.600 μs | 0.0071 μs | 0.0063 μs | 0.0629 |    1608 B |
+|   ProtoSerialize | 1.962 μs | 0.0019 μs | 0.0017 μs |      - |       1 B |
+|     DtoSerialize | 3.880 μs | 0.0086 μs | 0.0076 μs | 0.0610 |    1609 B |
+| ProtoDeserialize | 2.104 μs | 0.0102 μs | 0.0095 μs | 0.0725 |    1880 B |
+|       ProtoToDto | 3.253 μs | 0.0095 μs | 0.0089 μs | 0.0687 |    1760 B |
+|   DtoDeserialize | 5.922 μs | 0.0195 μs | 0.0183 μs | 0.1450 |    3640 B |
+|    JsonSerialize | 3.297 μs | 0.0046 μs | 0.0041 μs | 0.0305 |     824 B |
+|  JsonDeserialize | 6.014 μs | 0.0200 μs | 0.0187 μs | 0.0763 |    2016 B |
