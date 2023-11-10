@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Greeter.Bench.Benchmark-20231109-232414</title>
+<title>Greeter.Bench.Benchmark-20231110-000450</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -14,7 +14,7 @@
 <body>
 <pre><code>
 BenchmarkDotNet=v0.13.5, OS=Windows 10 (10.0.20348.2031), VM=Hyper-V
-Intel Xeon Platinum 8272CL CPU 2.60GHz, 1 CPU, 2 logical and 2 physical cores
+Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 .NET SDK=7.0.403
   [Host]     : .NET 7.0.13 (7.0.1323.51816), X64 RyuJIT AVX2
   DefaultJob : .NET 7.0.13 (7.0.1323.51816), X64 RyuJIT AVX2
@@ -24,14 +24,14 @@ Intel Xeon Platinum 8272CL CPU 2.60GHz, 1 CPU, 2 logical and 2 physical cores
 <table>
 <thead><tr><th>    Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>DtoToProto</td><td>1.585 &mu;s</td><td>0.0064 &mu;s</td><td>0.0059 &mu;s</td><td>0.0801</td><td>1512 B</td>
-</tr><tr><td>ProtoSerialize</td><td>1.548 &mu;s</td><td>0.0079 &mu;s</td><td>0.0070 &mu;s</td><td>-</td><td>1 B</td>
-</tr><tr><td>DtoSerialize</td><td>3.486 &mu;s</td><td>0.0141 &mu;s</td><td>0.0132 &mu;s</td><td>0.0801</td><td>1513 B</td>
-</tr><tr><td>ProtoDeserialize</td><td>1.770 &mu;s</td><td>0.0087 &mu;s</td><td>0.0081 &mu;s</td><td>0.0954</td><td>1784 B</td>
-</tr><tr><td>ProtoToDto</td><td>3.105 &mu;s</td><td>0.0083 &mu;s</td><td>0.0074 &mu;s</td><td>0.0725</td><td>1360 B</td>
-</tr><tr><td>DtoDeserialize</td><td>5.160 &mu;s</td><td>0.0151 &mu;s</td><td>0.0141 &mu;s</td><td>0.1678</td><td>3144 B</td>
-</tr><tr><td>JsonSerialize</td><td>3.308 &mu;s</td><td>0.0135 &mu;s</td><td>0.0126 &mu;s</td><td>0.0420</td><td>824 B</td>
-</tr><tr><td>JsonDeserialize</td><td>6.041 &mu;s</td><td>0.0213 &mu;s</td><td>0.0199 &mu;s</td><td>0.1068</td><td>2016 B</td>
+</thead><tbody><tr><td>DtoToProto</td><td>1.457 &mu;s</td><td>0.0149 &mu;s</td><td>0.0132 &mu;s</td><td>0.0591</td><td>1512 B</td>
+</tr><tr><td>ProtoSerialize</td><td>1.414 &mu;s</td><td>0.0019 &mu;s</td><td>0.0018 &mu;s</td><td>-</td><td>1 B</td>
+</tr><tr><td>DtoSerialize</td><td>3.073 &mu;s</td><td>0.0082 &mu;s</td><td>0.0068 &mu;s</td><td>0.0572</td><td>1513 B</td>
+</tr><tr><td>ProtoDeserialize</td><td>1.725 &mu;s</td><td>0.0029 &mu;s</td><td>0.0024 &mu;s</td><td>0.0706</td><td>1784 B</td>
+</tr><tr><td>ProtoToDto</td><td>2.974 &mu;s</td><td>0.0351 &mu;s</td><td>0.0328 &mu;s</td><td>0.0534</td><td>1360 B</td>
+</tr><tr><td>DtoDeserialize</td><td>5.066 &mu;s</td><td>0.0129 &mu;s</td><td>0.0120 &mu;s</td><td>0.1221</td><td>3144 B</td>
+</tr><tr><td>JsonSerialize</td><td>3.370 &mu;s</td><td>0.0061 &mu;s</td><td>0.0057 &mu;s</td><td>0.0305</td><td>824 B</td>
+</tr><tr><td>JsonDeserialize</td><td>5.935 &mu;s</td><td>0.0415 &mu;s</td><td>0.0388 &mu;s</td><td>0.0763</td><td>2016 B</td>
 </tr></tbody></table>
 </body>
 </html>
