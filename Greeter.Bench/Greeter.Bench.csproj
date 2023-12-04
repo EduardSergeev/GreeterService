@@ -10,5 +10,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Greeter.Grpc\Greeter.Grpc.csproj" />
+    <ProjectReference Include="..\Greeter.Test\Greeter.Test.csproj" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,7 @@
 using System.Text.Json;
 using BenchmarkDotNet.Attributes;
 using Google.Protobuf;
-using Greeter.Common;
-using static Greeter.Common.Title;
+using Greeter.Common.Test;
 
 using Dto = Greeter.Common.Person;
 using Proto = Greeter.Common.Grpc.Person;
@@ -13,47 +12,10 @@ namespace Greeter.Bench;
 [RPlotExporter]
 public class Benchmark
 {
-    private static readonly Dto Dto = new Dto
-    {
-        Name = new()
-        {
-            Title = Mr,
-            FirstName = "Eric",
-            LastName = "Cartman",
-        },
-        OtherNames = new()
-        {
-            new(Miss, "Erica", "Cartman"),
-            new(Miss, "Mitch", "Conner"),
-        },
-        Aliases = new[]
-        {
-            "The Coon",
-            "A.W.E.S.O.M.-O 4000",
-        },
-        Details = new()
-        {
-            DateOfBirth = new(DateTime.Now.Year - 10, 7, 1),
-            Height = 5.5,
-            Length = 1.4M,
-            Addresses = new Address[]
-            {
-                new()
-                {
-                    Street = new[] { "28201 E. Bonanza St." },
-                    City = "South Park",
-                    State = "Colorado",
-                    Country = "USA",
-                },
-            },
-        }
-    };
-
-
+    private static readonly GreeterExtendedServiceArbitrary.GreeterExtendedServiceArbitraryGens Gens = new();
+    private static readonly Dto Dto = Gens.GenGreeterCommonPerson().MaxBy(p => Serialize((Proto)p).Length);
     private static readonly Proto Proto = Dto;
-
     private static readonly byte[] ProtoBytes = Serialize(Proto);
-
     private static readonly byte[] JsonBytes = JsonSerializer.SerializeToUtf8Bytes(Dto);
 
 
