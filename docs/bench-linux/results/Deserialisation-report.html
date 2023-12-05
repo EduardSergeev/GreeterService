@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Deserialisation-20231205-034102</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.10, Ubuntu 22.04.3 LTS (Jammy Jellyfish)
+AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
+.NET SDK 8.0.100
+  [Host]          : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+  Deserialisation : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>Job=Deserialisation  
+</code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>Size</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>Gen0</th><th>Gen1</th><th>Allocated</th><th>Alloc Ratio</th>
+</tr>
+</thead><tbody><tr><td>Protobuf</td><td>1</td><td>2.931 &mu;s</td><td>0.0125 &mu;s</td><td>0.0117 &mu;s</td><td>0.98</td><td>0.0267</td><td>-</td><td>2.45 KB</td><td>1.52</td>
+</tr><tr><td>Json</td><td>1</td><td>2.982 &mu;s</td><td>0.0157 &mu;s</td><td>0.0147 &mu;s</td><td>1.00</td><td>0.0191</td><td>-</td><td>1.62 KB</td><td>1.00</td>
+</tr><tr><td>Protobuf</td><td>10</td><td>15.949 &mu;s</td><td>0.0469 &mu;s</td><td>0.0366 &mu;s</td><td>0.97</td><td>0.1526</td><td>-</td><td>13.78 KB</td><td>1.56</td>
+</tr><tr><td>Json</td><td>10</td><td>16.465 &mu;s</td><td>0.1079 &mu;s</td><td>0.1009 &mu;s</td><td>1.00</td><td>0.0916</td><td>-</td><td>8.83 KB</td><td>1.00</td>
+</tr><tr><td>Protobuf</td><td>100</td><td>139.288 &mu;s</td><td>0.7896 &mu;s</td><td>0.6594 &mu;s</td><td>0.98</td><td>1.4648</td><td>0.2441</td><td>123.52 KB</td><td>1.58</td>
+</tr><tr><td>Json</td><td>100</td><td>141.811 &mu;s</td><td>1.1065 &mu;s</td><td>0.9809 &mu;s</td><td>1.00</td><td>0.7324</td><td>-</td><td>78.29 KB</td><td>1.00</td>
+</tr></tbody></table>
+</body>
+</html>
