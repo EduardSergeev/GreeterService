@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>StringArraySerialisation-20231205-052201</title>
+<title>StringArraySerialisation-20231205-181244</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -22,17 +22,17 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>Method        </th><th>Length</th><th>Mean  </th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Gen0</th><th>Gen1</th><th>Allocated</th><th>Alloc Ratio</th>
+<thead><tr><th>Method        </th><th>Length</th><th>Mean  </th><th>Error</th><th>StdDev</th><th>Ratio</th><th>Gen0</th><th>Gen1</th><th>Allocated</th><th>Alloc Ratio</th>
 </tr>
-</thead><tbody><tr><td>DtoSerialize</td><td>10</td><td>488.7 ns</td><td>1.08 ns</td><td>0.90 ns</td><td>1.09</td><td>0.01</td><td>0.0210</td><td>-</td><td>360 B</td><td>0.74</td>
-</tr><tr><td>JsonSerialize</td><td>10</td><td>448.0 ns</td><td>4.78 ns</td><td>4.47 ns</td><td>1.00</td><td>0.00</td><td>0.0291</td><td>-</td><td>488 B</td><td>1.00</td>
-</tr><tr><td>NullableDtoSerialize</td><td>10</td><td>1,318.6 ns</td><td>1.80 ns</td><td>1.69 ns</td><td>2.94</td><td>0.03</td><td>0.0401</td><td>-</td><td>680 B</td><td>1.39</td>
-</tr><tr><td>DtoSerialize</td><td>100</td><td>3,340.9 ns</td><td>23.50 ns</td><td>21.98 ns</td><td>1.34</td><td>0.01</td><td>0.1297</td><td>-</td><td>2225 B</td><td>4.56</td>
-</tr><tr><td>JsonSerialize</td><td>100</td><td>2,491.2 ns</td><td>2.96 ns</td><td>2.48 ns</td><td>1.00</td><td>0.00</td><td>0.0267</td><td>-</td><td>488 B</td><td>1.00</td>
-</tr><tr><td>NullableDtoSerialize</td><td>100</td><td>11,606.0 ns</td><td>29.78 ns</td><td>24.87 ns</td><td>4.66</td><td>0.01</td><td>0.3204</td><td>-</td><td>5426 B</td><td>11.12</td>
-</tr><tr><td>DtoSerialize</td><td>1000</td><td>31,217.5 ns</td><td>88.72 ns</td><td>78.65 ns</td><td>1.30</td><td>0.00</td><td>0.9766</td><td>-</td><td>16655 B</td><td>34.13</td>
-</tr><tr><td>JsonSerialize</td><td>1000</td><td>23,979.1 ns</td><td>17.05 ns</td><td>15.95 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>488 B</td><td>1.00</td>
-</tr><tr><td>NullableDtoSerialize</td><td>1000</td><td>116,667.7 ns</td><td>681.65 ns</td><td>637.62 ns</td><td>4.87</td><td>0.03</td><td>2.8076</td><td>0.3662</td><td>48655 B</td><td>99.70</td>
+</thead><tbody><tr><td>DtoSerialize</td><td>10</td><td>487.1 ns</td><td>0.84 ns</td><td>0.74 ns</td><td>1.07</td><td>0.0210</td><td>-</td><td>360 B</td><td>0.74</td>
+</tr><tr><td>JsonSerialize</td><td>10</td><td>457.0 ns</td><td>1.04 ns</td><td>0.92 ns</td><td>1.00</td><td>0.0291</td><td>-</td><td>488 B</td><td>1.00</td>
+</tr><tr><td>NullableDtoSerialize</td><td>10</td><td>1,358.1 ns</td><td>3.61 ns</td><td>3.38 ns</td><td>2.97</td><td>0.0401</td><td>-</td><td>680 B</td><td>1.39</td>
+</tr><tr><td>DtoSerialize</td><td>100</td><td>3,494.1 ns</td><td>6.94 ns</td><td>6.15 ns</td><td>1.39</td><td>0.1297</td><td>-</td><td>2225 B</td><td>4.56</td>
+</tr><tr><td>JsonSerialize</td><td>100</td><td>2,519.2 ns</td><td>3.37 ns</td><td>3.15 ns</td><td>1.00</td><td>0.0267</td><td>-</td><td>488 B</td><td>1.00</td>
+</tr><tr><td>NullableDtoSerialize</td><td>100</td><td>11,672.3 ns</td><td>16.40 ns</td><td>12.80 ns</td><td>4.63</td><td>0.3204</td><td>-</td><td>5426 B</td><td>11.12</td>
+</tr><tr><td>DtoSerialize</td><td>1000</td><td>32,632.5 ns</td><td>63.16 ns</td><td>55.99 ns</td><td>1.37</td><td>0.9766</td><td>-</td><td>16655 B</td><td>34.13</td>
+</tr><tr><td>JsonSerialize</td><td>1000</td><td>23,785.3 ns</td><td>37.80 ns</td><td>33.50 ns</td><td>1.00</td><td>-</td><td>-</td><td>488 B</td><td>1.00</td>
+</tr><tr><td>NullableDtoSerialize</td><td>1000</td><td>118,096.0 ns</td><td>137.97 ns</td><td>122.31 ns</td><td>4.97</td><td>2.8076</td><td>0.3662</td><td>48655 B</td><td>99.70</td>
 </tr></tbody></table>
 </body>
 </html>
