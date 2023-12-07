@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>SingleDto-20231207-081537</title>
+<title>SingleDto-20231207-092320</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -16,18 +16,20 @@
 BenchmarkDotNet v0.13.10, Windows 10 (10.0.20348.2113) (Hyper-V)
 AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 .NET SDK 8.0.100
-  [Host]     : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
-  DefaultJob : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+  [Host]   : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+  ShortRun : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
 </code></pre>
-<pre><code></code></pre>
+<pre><code>Job=ShortRun  IterationCount=3  LaunchCount=1  
+WarmupCount=3  
+</code></pre>
 
 <table>
 <thead><tr><th>Method  </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;DTO → byte[]&#39;</td><td>3.994 &mu;s</td><td>0.0254 &mu;s</td><td>0.0212 &mu;s</td><td>0.1450</td><td>2.39 KB</td>
-</tr><tr><td>&#39;DTO → JSON&#39;</td><td>5.098 &mu;s</td><td>0.0145 &mu;s</td><td>0.0129 &mu;s</td><td>0.0610</td><td>1.06 KB</td>
-</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>6.535 &mu;s</td><td>0.0255 &mu;s</td><td>0.0239 &mu;s</td><td>0.3433</td><td>5.72 KB</td>
-</tr><tr><td>&#39;JSON → DTO&#39;</td><td>7.112 &mu;s</td><td>0.0175 &mu;s</td><td>0.0155 &mu;s</td><td>0.2060</td><td>3.46 KB</td>
+</thead><tbody><tr><td>&#39;DTO → byte[]&#39;</td><td>3.873 &mu;s</td><td>0.9208 &mu;s</td><td>0.0505 &mu;s</td><td>0.1450</td><td>2.39 KB</td>
+</tr><tr><td>&#39;DTO → JSON&#39;</td><td>5.085 &mu;s</td><td>0.1727 &mu;s</td><td>0.0095 &mu;s</td><td>0.0610</td><td>1.06 KB</td>
+</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>6.806 &mu;s</td><td>0.4658 &mu;s</td><td>0.0255 &mu;s</td><td>0.3433</td><td>5.72 KB</td>
+</tr><tr><td>&#39;JSON → DTO&#39;</td><td>7.240 &mu;s</td><td>0.8619 &mu;s</td><td>0.0472 &mu;s</td><td>0.2060</td><td>3.46 KB</td>
 </tr></tbody></table>
 </body>
 </html>
