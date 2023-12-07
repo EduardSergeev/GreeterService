@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>SingleDto-20231207-081533</title>
+<title>SingleDtoDetailed-20231207-081714</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -22,12 +22,12 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>Method  </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
+<thead><tr><th>Method    </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;DTO → byte[]&#39;</td><td>4.333 &mu;s</td><td>0.0138 &mu;s</td><td>0.0115 &mu;s</td><td>0.0229</td><td>2.39 KB</td>
-</tr><tr><td>&#39;DTO → JSON&#39;</td><td>5.091 &mu;s</td><td>0.0397 &mu;s</td><td>0.0372 &mu;s</td><td>0.0076</td><td>1.06 KB</td>
-</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>7.407 &mu;s</td><td>0.0309 &mu;s</td><td>0.0289 &mu;s</td><td>0.0687</td><td>5.72 KB</td>
-</tr><tr><td>&#39;JSON → DTO&#39;</td><td>7.347 &mu;s</td><td>0.0273 &mu;s</td><td>0.0256 &mu;s</td><td>0.0381</td><td>3.46 KB</td>
+</thead><tbody><tr><td>&#39;DTO → Proto&#39;</td><td>1.899 &mu;s</td><td>0.0088 &mu;s</td><td>0.0083 &mu;s</td><td>0.0286</td><td>2448 B</td>
+</tr><tr><td>&#39;Proto → byte[]&#39;</td><td>2.213 &mu;s</td><td>0.0125 &mu;s</td><td>0.0117 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;byte[] → Proto&#39;</td><td>2.287 &mu;s</td><td>0.0108 &mu;s</td><td>0.0101 &mu;s</td><td>0.0381</td><td>3296 B</td>
+</tr><tr><td>&#39;Proto → DTO&#39;</td><td>4.640 &mu;s</td><td>0.0154 &mu;s</td><td>0.0136 &mu;s</td><td>0.0305</td><td>2560 B</td>
 </tr></tbody></table>
 </body>
 </html>
