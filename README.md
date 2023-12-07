@@ -1,13 +1,10 @@
 # gRPC/Protobuf code generation example
 
-[MSDN gRPC example](https://learn.microsoft.com/en-us/aspnet/core/grpc/) implemented with [![IndependentReserve.Grpc.Tools](https://img.shields.io/nuget/dt/IndependentReserve.Grpc.Tools?logo=nuget&label=IndependentReserve.Grpc.Tools&labelColor=%23004880&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FIndependentReserve.Grpc.Tools%23readme-body-tab)](https://www.nuget.org/packages/IndependentReserve.Grpc.Tools/#readme-body-tab)
-
+[MSDN gRPC example](https://learn.microsoft.com/en-us/aspnet/core/grpc/) implemented using [IndependentReserve.Grpc.Tools](https://www.nuget.org/packages/IndependentReserve.Grpc.Tools/#readme-body-tab) package
 
 [![Build Status](https://github.com/EduardSergeev/GreeterService/workflows/build/badge.svg)](https://github.com/EduardSergeev/GreeterService/actions?query=workflow%3Abuild+branch%3Amaster)
-[![Linux benchmarks](https://eduardsergeev.github.io/GreeterService/bench-linux.svg)](https://eduardsergeev.github.io/GreeterService/bench-linux/results/Greeter.Bench.Benchmark-report.html)
-[![Windows benchmarks](https://eduardsergeev.github.io/GreeterService/bench-windows.svg)](https://eduardsergeev.github.io/GreeterService/bench-windows/results/Greeter.Bench.Benchmark-report.html)
-
-
+[![Linux benchmarks](https://eduardsergeev.github.io/GreeterService/bench-linux.svg)](https://eduardsergeev.github.io/GreeterService/bench-linux/results/SingleDto-report.html)
+[![Windows benchmarks](https://eduardsergeev.github.io/GreeterService/bench-windows.svg)](https://eduardsergeev.github.io/GreeterService/bench-windows/results/SingleDto-report.html)
 
 ## How to run it
 
@@ -45,3 +42,20 @@ Benchmarks:
 cd Greeter.Bench
 dotnet run -c Release
 ```
+
+## Benchmark results
+
+Latest benchmark results can be found on [docs](blob/docs/docs) branch:
+- [Linux](blob/docs/docs/bench-linux/results)
+- [Windows](blob/docs/docs/bench-windows/results)
+
+<details>
+  <summary>Benchmark results example:</summary>
+
+[Serialisation](Greeter.Bench/StringArraySerialisation.cs) of `string[]` vs `string?[]` collection (vs JSON serialisation as baseline):
+
+<a href="https://eduardsergeev.github.io/GreeterService/bench-linux/results/StringArraySerialisation-report.html">
+    <img src="https://eduardsergeev.github.io/GreeterService/bench-linux/results/StringArraySerialisation-barplot.png" height="500"/>
+</a>
+
+</details>

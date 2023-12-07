@@ -4,9 +4,19 @@ on:
   push:
     branches-ignore:
       - 'docs'
+  pull_request:
+    branches:
+      - master
+      
 env:
   BENCH_LINUX: bench-linux
   BENCH_WINDOWS: bench-windows
+  BENCH_ARGS: ${{ (github.ref == 'refs/heads/master' || github.event_name == 'pull_request') && '-a ../.bench -f "*"' || '-a ../.bench -j short -f "SingleDto.*"' }}
+  BENCH_ARTIFACTS: |
+    .bench/**/*.csv
+    .bench/**/*.html
+    .bench/**/*.md
+    .bench/**/*plot.png
 
 jobs:
   service:
@@ -79,12 +89,12 @@ jobs:
     - name: Conversion benchmarks '${{ env.VERSION }}'
       run: |
         cd Greeter.Bench
-        dotnet run -c Release
+        dotnet run -c Release -- ${{ env.BENCH_ARGS }}
     - name: Upload ${{ env.BENCH_LINUX }} benchmark results
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.BENCH_LINUX }}
-        path: .bench/
+        path: ${{ env.BENCH_ARTIFACTS }}
 
   bench-windows:
     runs-on: windows-latest
@@ -98,12 +108,12 @@ jobs:
     - name: Conversion benchmarks '${{ env.VERSION }}'
       run: |
         cd Greeter.Bench
-        dotnet run -c Release
+        dotnet run -c Release -- ${{ env.BENCH_ARGS }}
     - name: Upload ${{ env.BENCH_WINDOWS }} benchmark results
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.BENCH_WINDOWS }}
-        path: .bench/
+        path: ${{ env.BENCH_ARTIFACTS }}
   
   documentation:
     needs:
@@ -118,30 +128,25 @@ jobs:
       uses: actions/checkout@v3
       with:
         ref: ${{ env.DOCS_BRANCH }}
-
     - name: Set version
       uses: EduardSergeev/project-version-action@v6.5
       with:
         time-zone: Australia/Sydney
         version-file-exists: false
-
     - name: Clear up ${{ env.DOCS_DIR }} directory
       run: |
         rm -fr ${{ env.DOCS_DIR }}
         mkdir ${{ env.DOCS_DIR }}
-
     - name: Download ${{ env.BENCH_LINUX }} benchmark results
       uses: actions/download-artifact@v3
       with:
         name: ${{ env.BENCH_LINUX }}
         path: ${{ env.DOCS_DIR }}/${{ env.BENCH_LINUX }}
-
     - name: Download ${{ env.BENCH_LINUX }} benchmark results
       uses: actions/download-artifact@v3
       with:
         name: ${{ env.BENCH_WINDOwS }}
         path: ${{ env.DOCS_DIR }}/${{ env.BENCH_WINDOwS }}
-
     - name: Update documentation
       run: |
         npm i -g badge-maker

@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
 WORKDIR /work
 
@@ -18,7 +18,7 @@ RUN dotnet publish -c Release -r linux-musl-x64 --self-contained -o ./.publish G
 
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/runtime-deps:7.0-alpine
+FROM mcr.microsoft.com/dotnet/runtime-deps:8.0-alpine
 ENV URLS "http://*:80;https://*:443"
 ENV Logging__Console__FormatterName ""
 WORKDIR /app
