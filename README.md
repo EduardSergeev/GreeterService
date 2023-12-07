@@ -45,9 +45,9 @@ dotnet run -c Release
 
 ## Benchmark results
 
-Latest benchmark results can be found on [docs](blob/docs/docs) branch:
-- [Linux](blob/docs/docs/bench-linux/results)
-- [Windows](blob/docs/docs/bench-windows/results)
+Latest benchmark results can be found on [docs](../../docs/docs) branch:
+- [Linux](../../docs/docs/bench-linux/results)
+- [Windows](../../docs/docs/bench-windows/results)
 
 <details>
   <summary>Benchmark results example:</summary>
