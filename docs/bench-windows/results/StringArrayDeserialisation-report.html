@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>StringArrayDeserialisation-20231207-102454</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.10, Windows 10 (10.0.20348.2113) (Hyper-V)
+AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
+.NET SDK 8.0.100
+  [Host]     : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method        </th><th>Size</th><th>Mean </th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Gen0</th><th>Gen1</th><th>Allocated</th><th>Alloc Ratio</th>
+</tr>
+</thead><tbody><tr><td>&#39;byte[] → string[]&#39;</td><td>1</td><td>253.1 ns</td><td>1.23 ns</td><td>1.15 ns</td><td>0.87</td><td>0.01</td><td>0.0248</td><td>-</td><td>416 B</td><td>0.71</td>
+</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>1</td><td>302.6 ns</td><td>2.87 ns</td><td>2.69 ns</td><td>1.04</td><td>0.02</td><td>0.0315</td><td>-</td><td>528 B</td><td>0.90</td>
+</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>1</td><td>289.8 ns</td><td>4.29 ns</td><td>4.01 ns</td><td>1.00</td><td>0.00</td><td>0.0348</td><td>-</td><td>584 B</td><td>1.00</td>
+</tr><tr><td>&#39;byte[] → string[]&#39;</td><td>10</td><td>528.2 ns</td><td>3.50 ns</td><td>3.28 ns</td><td>0.48</td><td>0.00</td><td>0.0610</td><td>-</td><td>1024 B</td><td>0.88</td>
+</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>10</td><td>1,326.9 ns</td><td>5.33 ns</td><td>4.99 ns</td><td>1.21</td><td>0.01</td><td>0.0820</td><td>-</td><td>1384 B</td><td>1.18</td>
+</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>10</td><td>1,092.9 ns</td><td>4.06 ns</td><td>3.80 ns</td><td>1.00</td><td>0.00</td><td>0.0687</td><td>-</td><td>1168 B</td><td>1.00</td>
+</tr><tr><td>&#39;byte[] → string[]&#39;</td><td>100</td><td>4,323.1 ns</td><td>55.37 ns</td><td>49.08 ns</td><td>0.25</td><td>0.00</td><td>0.9766</td><td>0.0229</td><td>16392 B</td><td>1.05</td>
+</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>100</td><td>10,816.7 ns</td><td>60.93 ns</td><td>56.99 ns</td><td>0.63</td><td>0.01</td><td>1.1597</td><td>0.0610</td><td>19448 B</td><td>1.24</td>
+</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>100</td><td>17,079.9 ns</td><td>77.41 ns</td><td>72.41 ns</td><td>1.00</td><td>0.00</td><td>0.9155</td><td>-</td><td>15632 B</td><td>1.00</td>
+</tr></tbody></table>
+</body>
+</html>
