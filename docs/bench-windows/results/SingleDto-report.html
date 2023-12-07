@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Detailed-20231206-052012</title>
+<title>SingleDto-20231207-075511</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -24,12 +24,12 @@ WarmupCount=3
 </code></pre>
 
 <table>
-<thead><tr><th>Method    </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
+<thead><tr><th>Method  </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;byte[] → Proto&#39;</td><td>1.983 &mu;s</td><td>0.3100 &mu;s</td><td>0.0170 &mu;s</td><td>0.1945</td><td>3296 B</td>
-</tr><tr><td>&#39;Proto → DTO&#39;</td><td>4.436 &mu;s</td><td>1.1747 &mu;s</td><td>0.0644 &mu;s</td><td>0.1526</td><td>2560 B</td>
-</tr><tr><td>&#39;DTO → Proto&#39;</td><td>1.733 &mu;s</td><td>0.2076 &mu;s</td><td>0.0114 &mu;s</td><td>0.1450</td><td>2448 B</td>
-</tr><tr><td>&#39;Proto → byte[]&#39;</td><td>2.180 &mu;s</td><td>0.1083 &mu;s</td><td>0.0059 &mu;s</td><td>-</td><td>7 B</td>
+</thead><tbody><tr><td>&#39;DTO → byte[]&#39;</td><td>5.039 &mu;s</td><td>28.9373 &mu;s</td><td>1.5861 &mu;s</td><td>0.1450</td><td>2.39 KB</td>
+</tr><tr><td>&#39;DTO → JSON&#39;</td><td>5.011 &mu;s</td><td>0.1411 &mu;s</td><td>0.0077 &mu;s</td><td>0.0610</td><td>1.06 KB</td>
+</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>6.954 &mu;s</td><td>0.0217 &mu;s</td><td>0.0012 &mu;s</td><td>0.3433</td><td>5.72 KB</td>
+</tr><tr><td>&#39;JSON → DTO&#39;</td><td>7.235 &mu;s</td><td>0.1801 &mu;s</td><td>0.0099 &mu;s</td><td>0.2060</td><td>3.46 KB</td>
 </tr></tbody></table>
 </body>
 </html>
