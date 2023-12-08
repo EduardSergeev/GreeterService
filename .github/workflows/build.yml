@@ -85,12 +85,12 @@ jobs:
     - name: Short conversion benchmarks
       run: |
         cd Greeter.Bench
-        dotnet run -c Release -- -a ../.bench/${{ matrix.os }} -j short -f "SingleDto.*"
+        dotnet run -c Release -- -a ../.bench -j short -f "SingleDto.*"
     - name: Full conversion benchmarks '${{ env.VERSION }}'
       if: ${{ github.ref == 'refs/heads/master' || github.event_name == 'pull_request' }}
       run: |
         cd Greeter.Bench
-        dotnet run -c Release -- -a ../.bench/${{ matrix.os }} -f "*"
+        dotnet run -c Release -- -a ../.bench -f "*"
     - name: Upload ${{ matrix.os }} benchmarks results
       uses: actions/upload-artifact@v3
       with:
@@ -120,7 +120,7 @@ jobs:
         version-file-exists: false
     - name: Clear up ${{ env.DOCS_DIR }} directory
       run: |
-        rm -fr ${{ env.DOCS_DIR }}
+        git rm -r ${{ env.DOCS_DIR }}
         mkdir ${{ env.DOCS_DIR }}
     - name: Download benchmark results
       uses: actions/download-artifact@v3
@@ -136,7 +136,7 @@ jobs:
         git -c "user.name=Auto Publisher" -c "user.email=eduard.sergeev@gmail.com" commit --allow-empty -m "Build ${{ env.VERSION }}"
 
     - name: Push documentation to '${{ env.DOCS_BRANCH }}' branch
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      # if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
