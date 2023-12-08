@@ -8,16 +8,6 @@ on:
     branches:
       - master
       
-env:
-  BENCH_LINUX: ubuntu-latest
-  BENCH_WINDOWS: windows-latest
-  BENCH_ARGS: ${{ (github.ref == 'refs/heads/master' || github.event_name == 'pull_request') && '-a ../.bench -f "*"' || '-a ../.bench -j short -f "SingleDto.*"' }}
-  BENCH_ARTIFACTS: |
-    .bench/**/*.csv
-    .bench/**/*.html
-    .bench/**/*.md
-    .bench/**/*plot.png
-
 jobs:
   service:
     runs-on: ubuntu-latest
@@ -92,19 +82,24 @@ jobs:
       with:
         time-zone: Australia/Sydney
         version-file: properties/Global.props
-    - name: Benchmarks warm up
+    - name: Short conversion benchmarks
       run: |
         cd Greeter.Bench
-        dotnet run -c Release -- -a ../.bench -j dry -f "SingleDto.DtoToBinary"
-    - name: Conversion benchmarks '${{ env.VERSION }}'
+        dotnet run -c Release -- -a ../.bench/${{ matrix.os }} -j short -f "SingleDto.*"
+    - name: Full conversion benchmarks '${{ env.VERSION }}'
+      if: ${{ github.ref == 'refs/heads/master' || github.event_name == 'pull_request' }}
       run: |
         cd Greeter.Bench
-        dotnet run -c Release -- ${{ env.BENCH_ARGS }}
-    - name: Upload ${{ matrix.os }} benchmark results
+        dotnet run -c Release -- -a ../.bench/${{ matrix.os }} -f "*"
+    - name: Upload ${{ matrix.os }} benchmarks results
       uses: actions/upload-artifact@v3
       with:
         name: ${{ matrix.os }}
-        path: ${{ env.BENCH_ARTIFACTS }}
+        path: |
+          .bench/**/*.csv
+          .bench/**/*.html
+          .bench/**/*.md
+          .bench/**/*plot.png
  
   documentation:
     needs:
@@ -127,16 +122,10 @@ jobs:
       run: |
         rm -fr ${{ env.DOCS_DIR }}
         mkdir ${{ env.DOCS_DIR }}
-    - name: Download ${{ env.BENCH_LINUX }} benchmark results
+    - name: Download benchmark results
       uses: actions/download-artifact@v3
       with:
-        name: ${{ env.BENCH_LINUX }}
-        path: ${{ env.DOCS_DIR }}/${{ env.BENCH_LINUX }}
-    - name: Download ${{ env.BENCH_WINDOWS }} benchmark results
-      uses: actions/download-artifact@v3
-      with:
-        name: ${{ env.BENCH_WINDOWS }}
-        path: ${{ env.DOCS_DIR }}/${{ env.BENCH_WINDOWS }}
+        path: ${{ env.DOCS_DIR }}
     - name: Update documentation
       run: |
         npm i -g badge-maker
