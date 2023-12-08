@@ -9,8 +9,8 @@ on:
       - master
       
 env:
-  BENCH_LINUX: bench-Linux
-  BENCH_WINDOWS: bench-Windows
+  BENCH_LINUX: ubuntu-latest
+  BENCH_WINDOWS: windows-latest
   BENCH_ARGS: ${{ (github.ref == 'refs/heads/master' || github.event_name == 'pull_request') && '-a ../.bench -f "*"' || '-a ../.bench -j short -f "SingleDto.*"' }}
   BENCH_ARTIFACTS: |
     .bench/**/*.csv
@@ -100,10 +100,10 @@ jobs:
       run: |
         cd Greeter.Bench
         dotnet run -c Release -- ${{ env.BENCH_ARGS }}
-    - name: Upload bench-${{ runner.os }} benchmark results
+    - name: Upload ${{ matrix.os }} benchmark results
       uses: actions/upload-artifact@v3
       with:
-        name: bench-${{ runner.os }}
+        name: ${{ matrix.os }}
         path: ${{ env.BENCH_ARTIFACTS }}
  
   documentation:
@@ -132,11 +132,11 @@ jobs:
       with:
         name: ${{ env.BENCH_LINUX }}
         path: ${{ env.DOCS_DIR }}/${{ env.BENCH_LINUX }}
-    - name: Download ${{ env.BENCH_WINDOwS }} benchmark results
+    - name: Download ${{ env.BENCH_WINDOWS }} benchmark results
       uses: actions/download-artifact@v3
       with:
-        name: ${{ env.BENCH_WINDOwS }}
-        path: ${{ env.DOCS_DIR }}/${{ env.BENCH_WINDOwS }}
+        name: ${{ env.BENCH_WINDOWS }}
+        path: ${{ env.DOCS_DIR }}/${{ env.BENCH_WINDOWS }}
     - name: Update documentation
       run: |
         npm i -g badge-maker
