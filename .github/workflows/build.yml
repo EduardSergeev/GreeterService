@@ -136,7 +136,7 @@ jobs:
         git -c "user.name=Auto Publisher" -c "user.email=eduard.sergeev@gmail.com" commit --allow-empty -m "Build ${{ env.VERSION }}"
 
     - name: Push documentation to '${{ env.DOCS_BRANCH }}' branch
-      # if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
