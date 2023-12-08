@@ -9,8 +9,8 @@ on:
       - master
       
 env:
-  BENCH_LINUX: bench-linux
-  BENCH_WINDOWS: bench-windows
+  BENCH_LINUX: bench-Linux
+  BENCH_WINDOWS: bench-Windows
   BENCH_ARGS: ${{ (github.ref == 'refs/heads/master' || github.event_name == 'pull_request') && '-a ../.bench -f "*"' || '-a ../.bench -j short -f "SingleDto.*"' }}
   BENCH_ARTIFACTS: |
     .bench/**/*.csv
@@ -77,8 +77,14 @@ jobs:
     - name: docker stop
       run: docker stop greeter-service
 
-  bench-linux:
-    runs-on: ubuntu-latest
+  benchmarks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
     - name: Set version
@@ -86,39 +92,23 @@ jobs:
       with:
         time-zone: Australia/Sydney
         version-file: properties/Global.props
+    - name: Benchmarks warm up
+      run: |
+        cd Greeter.Bench
+        dotnet run -c Release -- -a ../.bench -j dry -f "SingleDto.DtoToBinary"
     - name: Conversion benchmarks '${{ env.VERSION }}'
       run: |
         cd Greeter.Bench
         dotnet run -c Release -- ${{ env.BENCH_ARGS }}
-    - name: Upload ${{ env.BENCH_LINUX }} benchmark results
+    - name: Upload bench-${{ runner.os }} benchmark results
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ env.BENCH_LINUX }}
+        name: bench-${{ runner.os }}
         path: ${{ env.BENCH_ARTIFACTS }}
-
-  bench-windows:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set version
-      uses: EduardSergeev/project-version-action@v6.5
-      with:
-        time-zone: Australia/Sydney
-        version-file: properties/Global.props
-    - name: Conversion benchmarks '${{ env.VERSION }}'
-      run: |
-        cd Greeter.Bench
-        dotnet run -c Release -- ${{ env.BENCH_ARGS }}
-    - name: Upload ${{ env.BENCH_WINDOWS }} benchmark results
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{ env.BENCH_WINDOWS }}
-        path: ${{ env.BENCH_ARTIFACTS }}
-  
+ 
   documentation:
     needs:
-      - bench-linux
-      - bench-windows
+      - benchmarks
     runs-on: ubuntu-latest
     env:
       DOCS_BRANCH: docs
@@ -142,7 +132,7 @@ jobs:
       with:
         name: ${{ env.BENCH_LINUX }}
         path: ${{ env.DOCS_DIR }}/${{ env.BENCH_LINUX }}
-    - name: Download ${{ env.BENCH_LINUX }} benchmark results
+    - name: Download ${{ env.BENCH_WINDOwS }} benchmark results
       uses: actions/download-artifact@v3
       with:
         name: ${{ env.BENCH_WINDOwS }}
