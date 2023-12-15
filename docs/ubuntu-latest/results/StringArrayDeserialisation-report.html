@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>StringArrayDeserialisation-20231208-102320</title>
+<title>StringArrayDeserialisation-20231215-184243</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -24,15 +24,15 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 <table>
 <thead><tr><th>Method        </th><th>Size</th><th>Mean </th><th>Error</th><th>StdDev</th><th>Ratio</th><th>Gen0</th><th>Gen1</th><th>Allocated</th><th>Alloc Ratio</th>
 </tr>
-</thead><tbody><tr><td>&#39;byte[] → string[]&#39;</td><td>1</td><td>282.5 ns</td><td>1.66 ns</td><td>1.48 ns</td><td>0.90</td><td>0.0048</td><td>-</td><td>416 B</td><td>0.71</td>
-</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>1</td><td>322.1 ns</td><td>0.85 ns</td><td>0.71 ns</td><td>1.03</td><td>0.0062</td><td>-</td><td>528 B</td><td>0.90</td>
-</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>1</td><td>313.1 ns</td><td>3.22 ns</td><td>2.86 ns</td><td>1.00</td><td>0.0067</td><td>-</td><td>584 B</td><td>1.00</td>
-</tr><tr><td>&#39;byte[] → string[]&#39;</td><td>10</td><td>611.6 ns</td><td>2.97 ns</td><td>2.64 ns</td><td>0.54</td><td>0.0114</td><td>-</td><td>1024 B</td><td>0.88</td>
-</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>10</td><td>1,389.4 ns</td><td>4.54 ns</td><td>4.02 ns</td><td>1.22</td><td>0.0153</td><td>-</td><td>1384 B</td><td>1.18</td>
-</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>10</td><td>1,134.4 ns</td><td>8.38 ns</td><td>7.43 ns</td><td>1.00</td><td>0.0134</td><td>-</td><td>1168 B</td><td>1.00</td>
-</tr><tr><td>&#39;byte[] → string[]&#39;</td><td>100</td><td>5,284.3 ns</td><td>36.08 ns</td><td>33.75 ns</td><td>0.30</td><td>0.1907</td><td>0.0076</td><td>16392 B</td><td>1.05</td>
-</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>100</td><td>11,740.4 ns</td><td>25.26 ns</td><td>22.39 ns</td><td>0.66</td><td>0.2289</td><td>-</td><td>19448 B</td><td>1.24</td>
-</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>100</td><td>17,824.7 ns</td><td>48.14 ns</td><td>45.03 ns</td><td>1.00</td><td>0.1831</td><td>-</td><td>15632 B</td><td>1.00</td>
+</thead><tbody><tr><td>&#39;byte[] → string[]&#39;</td><td>1</td><td>276.3 ns</td><td>1.69 ns</td><td>1.58 ns</td><td>0.90</td><td>0.0048</td><td>-</td><td>416 B</td><td>0.71</td>
+</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>1</td><td>326.2 ns</td><td>1.96 ns</td><td>1.84 ns</td><td>1.07</td><td>0.0062</td><td>-</td><td>528 B</td><td>0.90</td>
+</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>1</td><td>305.9 ns</td><td>1.13 ns</td><td>1.05 ns</td><td>1.00</td><td>0.0067</td><td>-</td><td>584 B</td><td>1.00</td>
+</tr><tr><td>&#39;byte[] → string[]&#39;</td><td>10</td><td>614.8 ns</td><td>1.99 ns</td><td>1.77 ns</td><td>0.54</td><td>0.0114</td><td>-</td><td>1024 B</td><td>0.88</td>
+</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>10</td><td>1,420.3 ns</td><td>9.92 ns</td><td>8.79 ns</td><td>1.25</td><td>0.0153</td><td>-</td><td>1384 B</td><td>1.18</td>
+</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>10</td><td>1,132.2 ns</td><td>7.67 ns</td><td>7.17 ns</td><td>1.00</td><td>0.0134</td><td>-</td><td>1168 B</td><td>1.00</td>
+</tr><tr><td>&#39;byte[] → string[]&#39;</td><td>100</td><td>5,091.5 ns</td><td>13.93 ns</td><td>10.88 ns</td><td>0.29</td><td>0.1907</td><td>0.0076</td><td>16392 B</td><td>1.05</td>
+</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>100</td><td>11,697.0 ns</td><td>103.45 ns</td><td>96.76 ns</td><td>0.67</td><td>0.2289</td><td>-</td><td>19448 B</td><td>1.24</td>
+</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>100</td><td>17,508.7 ns</td><td>55.64 ns</td><td>52.05 ns</td><td>1.00</td><td>0.1831</td><td>-</td><td>15632 B</td><td>1.00</td>
 </tr></tbody></table>
 </body>
 </html>
