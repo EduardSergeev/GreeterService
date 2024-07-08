@@ -13,12 +13,14 @@ internal class Program
             .AddSingleton(GetExecutingAssembly().GetName().Version ?? new Version())
             .AddScoped<IGreeterService, Greeter>()
             .AddScoped<IGreeterExtendedService, GreeterExtended>()
+            .AddScoped<IGreeterStreamedService, GreeterExtended>()
             .AddGrpc();
 
         var app = builder.Build();
         app.Logger.LogInformation($"Version {app.Services.GetService<Version>()}");
         app.MapGrpcService<GreeterServiceGrpcService>();
         app.MapGrpcService<GreeterExtendedServiceGrpcService>();
+        app.MapGrpcService<GreeterStreamedServiceGrpcService>();
         app.Run();
     }
 }
