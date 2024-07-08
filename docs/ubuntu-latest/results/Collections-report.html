@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Collections-20231215-183524</title>
+<title>Collections-20240708-092733</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,29 +13,29 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet v0.13.10, Ubuntu 22.04.3 LTS (Jammy Jellyfish)
+BenchmarkDotNet v0.13.10, Ubuntu 22.04.4 LTS (Jammy Jellyfish)
 AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
-.NET SDK 8.0.100
-  [Host]     : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
-  DefaultJob : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+.NET SDK 8.0.302
+  [Host]     : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX2
 </code></pre>
 <pre><code></code></pre>
 
 <table>
 <thead><tr><th>Method  </th><th>Size</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Gen1</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;DTO → byte[]&#39;</td><td>1</td><td>1.660 &mu;s</td><td>0.0096 &mu;s</td><td>0.0085 &mu;s</td><td>0.0153</td><td>-</td><td>1320 B</td>
-</tr><tr><td>&#39;DTO → JSON&#39;</td><td>1</td><td>2.272 &mu;s</td><td>0.0083 &mu;s</td><td>0.0073 &mu;s</td><td>0.0076</td><td>-</td><td>776 B</td>
-</tr><tr><td>&#39;DTO → byte[]&#39;</td><td>10</td><td>8.929 &mu;s</td><td>0.0446 &mu;s</td><td>0.0373 &mu;s</td><td>0.0458</td><td>-</td><td>4920 B</td>
-</tr><tr><td>&#39;DTO → JSON&#39;</td><td>10</td><td>10.360 &mu;s</td><td>0.0579 &mu;s</td><td>0.0513 &mu;s</td><td>0.0153</td><td>-</td><td>1712 B</td>
-</tr><tr><td>&#39;DTO → byte[]&#39;</td><td>100</td><td>80.759 &mu;s</td><td>0.2856 &mu;s</td><td>0.2532 &mu;s</td><td>0.4883</td><td>-</td><td>40968 B</td>
-</tr><tr><td>&#39;DTO → JSON&#39;</td><td>100</td><td>91.579 &mu;s</td><td>0.5221 &mu;s</td><td>0.4629 &mu;s</td><td>0.1221</td><td>-</td><td>11288 B</td>
-</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>1</td><td>3.232 &mu;s</td><td>0.0070 &mu;s</td><td>0.0058 &mu;s</td><td>0.0305</td><td>-</td><td>2672 B</td>
-</tr><tr><td>&#39;JSON → DTO&#39;</td><td>1</td><td>3.250 &mu;s</td><td>0.0278 &mu;s</td><td>0.0260 &mu;s</td><td>0.0191</td><td>-</td><td>1800 B</td>
-</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>10</td><td>15.235 &mu;s</td><td>0.0355 &mu;s</td><td>0.0332 &mu;s</td><td>0.1526</td><td>-</td><td>13592 B</td>
-</tr><tr><td>&#39;JSON → DTO&#39;</td><td>10</td><td>15.635 &mu;s</td><td>0.1389 &mu;s</td><td>0.1300 &mu;s</td><td>0.0916</td><td>-</td><td>8488 B</td>
-</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>100</td><td>138.149 &mu;s</td><td>0.2709 &mu;s</td><td>0.2401 &mu;s</td><td>1.2207</td><td>0.2441</td><td>118824 B</td>
-</tr><tr><td>&#39;JSON → DTO&#39;</td><td>100</td><td>144.127 &mu;s</td><td>1.4336 &mu;s</td><td>1.2708 &mu;s</td><td>0.7324</td><td>-</td><td>73192 B</td>
+</thead><tbody><tr><td>&#39;DTO → byte[]&#39;</td><td>1</td><td>1.571 &mu;s</td><td>0.0077 &mu;s</td><td>0.0069 &mu;s</td><td>0.0153</td><td>-</td><td>1320 B</td>
+</tr><tr><td>&#39;DTO → JSON&#39;</td><td>1</td><td>2.370 &mu;s</td><td>0.0091 &mu;s</td><td>0.0085 &mu;s</td><td>0.0076</td><td>-</td><td>776 B</td>
+</tr><tr><td>&#39;DTO → byte[]&#39;</td><td>10</td><td>9.627 &mu;s</td><td>0.0363 &mu;s</td><td>0.0322 &mu;s</td><td>0.0458</td><td>-</td><td>4920 B</td>
+</tr><tr><td>&#39;DTO → JSON&#39;</td><td>10</td><td>10.345 &mu;s</td><td>0.0486 &mu;s</td><td>0.0455 &mu;s</td><td>0.0153</td><td>-</td><td>1712 B</td>
+</tr><tr><td>&#39;DTO → byte[]&#39;</td><td>100</td><td>80.546 &mu;s</td><td>0.4113 &mu;s</td><td>0.3847 &mu;s</td><td>0.4883</td><td>-</td><td>40968 B</td>
+</tr><tr><td>&#39;DTO → JSON&#39;</td><td>100</td><td>93.013 &mu;s</td><td>0.4943 &mu;s</td><td>0.4624 &mu;s</td><td>0.1221</td><td>-</td><td>11288 B</td>
+</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>1</td><td>3.244 &mu;s</td><td>0.0076 &mu;s</td><td>0.0068 &mu;s</td><td>0.0305</td><td>-</td><td>2672 B</td>
+</tr><tr><td>&#39;JSON → DTO&#39;</td><td>1</td><td>3.242 &mu;s</td><td>0.0157 &mu;s</td><td>0.0147 &mu;s</td><td>0.0191</td><td>-</td><td>1800 B</td>
+</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>10</td><td>15.501 &mu;s</td><td>0.0663 &mu;s</td><td>0.0588 &mu;s</td><td>0.1526</td><td>-</td><td>13592 B</td>
+</tr><tr><td>&#39;JSON → DTO&#39;</td><td>10</td><td>15.866 &mu;s</td><td>0.0854 &mu;s</td><td>0.0667 &mu;s</td><td>0.0916</td><td>-</td><td>8488 B</td>
+</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>100</td><td>135.368 &mu;s</td><td>0.6546 &mu;s</td><td>0.6123 &mu;s</td><td>1.2207</td><td>0.2441</td><td>118824 B</td>
+</tr><tr><td>&#39;JSON → DTO&#39;</td><td>100</td><td>139.416 &mu;s</td><td>0.7915 &mu;s</td><td>0.7404 &mu;s</td><td>0.7324</td><td>-</td><td>73192 B</td>
 </tr></tbody></table>
 </body>
 </html>

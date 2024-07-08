@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>StringArrayDetailed-20231215-184556</title>
+<title>StringArrayDetailed-20240708-093803</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,29 +13,29 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet v0.13.10, Ubuntu 22.04.3 LTS (Jammy Jellyfish)
+BenchmarkDotNet v0.13.10, Ubuntu 22.04.4 LTS (Jammy Jellyfish)
 AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
-.NET SDK 8.0.100
-  [Host]     : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
-  DefaultJob : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+.NET SDK 8.0.302
+  [Host]     : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX2
 </code></pre>
 <pre><code></code></pre>
 
 <table>
 <thead><tr><th>Method      </th><th>Size</th><th>Mean </th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Gen1</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;string[] → Proto&#39;</td><td>1</td><td>131.53 ns</td><td>0.551 ns</td><td>0.488 ns</td><td>0.0024</td><td>-</td><td>208 B</td>
-</tr><tr><td>&#39;Proto → byte[]&#39;</td><td>1</td><td>60.09 ns</td><td>0.243 ns</td><td>0.227 ns</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>&#39;string[] → Proto&#39;</td><td>10</td><td>250.80 ns</td><td>2.515 ns</td><td>2.353 ns</td><td>0.0043</td><td>-</td><td>360 B</td>
-</tr><tr><td>&#39;Proto → byte[]&#39;</td><td>10</td><td>288.97 ns</td><td>0.202 ns</td><td>0.158 ns</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>&#39;string[] → Proto&#39;</td><td>100</td><td>1,177.95 ns</td><td>7.990 ns</td><td>7.083 ns</td><td>0.0248</td><td>-</td><td>2224 B</td>
-</tr><tr><td>&#39;Proto → byte[]&#39;</td><td>100</td><td>4,097.25 ns</td><td>11.283 ns</td><td>10.002 ns</td><td>-</td><td>-</td><td>112 B</td>
-</tr><tr><td>&#39;byte[] → Proto&#39;</td><td>1</td><td>143.39 ns</td><td>0.453 ns</td><td>0.424 ns</td><td>0.0041</td><td>-</td><td>352 B</td>
-</tr><tr><td>&#39;Proto → string[]&#39;</td><td>1</td><td>112.99 ns</td><td>0.383 ns</td><td>0.339 ns</td><td>0.0007</td><td>-</td><td>64 B</td>
-</tr><tr><td>&#39;byte[] → Proto&#39;</td><td>10</td><td>441.81 ns</td><td>1.309 ns</td><td>1.224 ns</td><td>0.0095</td><td>-</td><td>816 B</td>
-</tr><tr><td>&#39;Proto → string[]&#39;</td><td>10</td><td>132.27 ns</td><td>0.506 ns</td><td>0.473 ns</td><td>0.0024</td><td>-</td><td>208 B</td>
-</tr><tr><td>&#39;byte[] → Proto&#39;</td><td>100</td><td>4,877.77 ns</td><td>18.494 ns</td><td>16.394 ns</td><td>0.1755</td><td>0.0076</td><td>14744 B</td>
-</tr><tr><td>&#39;Proto → string[]&#39;</td><td>100</td><td>269.50 ns</td><td>1.543 ns</td><td>1.368 ns</td><td>0.0196</td><td>-</td><td>1648 B</td>
+</thead><tbody><tr><td>&#39;string[] → Proto&#39;</td><td>1</td><td>129.63 ns</td><td>0.148 ns</td><td>0.139 ns</td><td>0.0024</td><td>-</td><td>208 B</td>
+</tr><tr><td>&#39;Proto → byte[]&#39;</td><td>1</td><td>60.25 ns</td><td>0.112 ns</td><td>0.105 ns</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;string[] → Proto&#39;</td><td>10</td><td>250.97 ns</td><td>1.009 ns</td><td>0.895 ns</td><td>0.0043</td><td>-</td><td>360 B</td>
+</tr><tr><td>&#39;Proto → byte[]&#39;</td><td>10</td><td>282.04 ns</td><td>0.657 ns</td><td>0.582 ns</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;string[] → Proto&#39;</td><td>100</td><td>1,210.90 ns</td><td>4.576 ns</td><td>3.821 ns</td><td>0.0248</td><td>-</td><td>2224 B</td>
+</tr><tr><td>&#39;Proto → byte[]&#39;</td><td>100</td><td>4,103.71 ns</td><td>15.963 ns</td><td>14.151 ns</td><td>-</td><td>-</td><td>112 B</td>
+</tr><tr><td>&#39;byte[] → Proto&#39;</td><td>1</td><td>142.35 ns</td><td>0.914 ns</td><td>0.810 ns</td><td>0.0041</td><td>-</td><td>352 B</td>
+</tr><tr><td>&#39;Proto → string[]&#39;</td><td>1</td><td>118.12 ns</td><td>0.187 ns</td><td>0.175 ns</td><td>0.0007</td><td>-</td><td>64 B</td>
+</tr><tr><td>&#39;byte[] → Proto&#39;</td><td>10</td><td>712.99 ns</td><td>3.338 ns</td><td>2.788 ns</td><td>0.0095</td><td>-</td><td>816 B</td>
+</tr><tr><td>&#39;Proto → string[]&#39;</td><td>10</td><td>133.50 ns</td><td>0.458 ns</td><td>0.429 ns</td><td>0.0024</td><td>-</td><td>208 B</td>
+</tr><tr><td>&#39;byte[] → Proto&#39;</td><td>100</td><td>4,818.19 ns</td><td>50.721 ns</td><td>47.444 ns</td><td>0.1755</td><td>0.0076</td><td>14744 B</td>
+</tr><tr><td>&#39;Proto → string[]&#39;</td><td>100</td><td>265.49 ns</td><td>3.177 ns</td><td>2.972 ns</td><td>0.0196</td><td>-</td><td>1648 B</td>
 </tr></tbody></table>
 </body>
 </html>

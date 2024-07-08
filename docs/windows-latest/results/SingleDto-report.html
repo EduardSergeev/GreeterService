@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>SingleDto-20231215-183840</title>
+<title>SingleDto-20240708-092937</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,21 +13,21 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet v0.13.10, Windows 10 (10.0.20348.2113) (Hyper-V)
+BenchmarkDotNet v0.13.10, Windows 10 (10.0.20348.2529) (Hyper-V)
 AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
-.NET SDK 8.0.100
-  [Host]     : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
-  DefaultJob : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+.NET SDK 8.0.302
+  [Host]     : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX2
 </code></pre>
 <pre><code></code></pre>
 
 <table>
 <thead><tr><th>Method  </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;DTO → byte[]&#39;</td><td>3.912 &mu;s</td><td>0.0266 &mu;s</td><td>0.0249 &mu;s</td><td>0.1450</td><td>2.39 KB</td>
-</tr><tr><td>&#39;DTO → JSON&#39;</td><td>4.900 &mu;s</td><td>0.0070 &mu;s</td><td>0.0062 &mu;s</td><td>0.0610</td><td>1.06 KB</td>
-</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>6.492 &mu;s</td><td>0.0101 &mu;s</td><td>0.0089 &mu;s</td><td>0.3433</td><td>5.72 KB</td>
-</tr><tr><td>&#39;JSON → DTO&#39;</td><td>7.051 &mu;s</td><td>0.0156 &mu;s</td><td>0.0146 &mu;s</td><td>0.2060</td><td>3.46 KB</td>
+</thead><tbody><tr><td>&#39;DTO → byte[]&#39;</td><td>3.851 &mu;s</td><td>0.0121 &mu;s</td><td>0.0101 &mu;s</td><td>0.1450</td><td>2.39 KB</td>
+</tr><tr><td>&#39;DTO → JSON&#39;</td><td>4.834 &mu;s</td><td>0.0166 &mu;s</td><td>0.0155 &mu;s</td><td>0.0610</td><td>1.06 KB</td>
+</tr><tr><td>&#39;byte[] → DTO&#39;</td><td>6.638 &mu;s</td><td>0.0559 &mu;s</td><td>0.0523 &mu;s</td><td>0.3433</td><td>5.72 KB</td>
+</tr><tr><td>&#39;JSON → DTO&#39;</td><td>7.285 &mu;s</td><td>0.0093 &mu;s</td><td>0.0087 &mu;s</td><td>0.2060</td><td>3.46 KB</td>
 </tr></tbody></table>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>SingleDtoDetailed-20231215-184020</title>
+<title>SingleDtoDetailed-20240708-093114</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,21 +13,21 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet v0.13.10, Windows 10 (10.0.20348.2113) (Hyper-V)
+BenchmarkDotNet v0.13.10, Windows 10 (10.0.20348.2529) (Hyper-V)
 AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
-.NET SDK 8.0.100
-  [Host]     : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
-  DefaultJob : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+.NET SDK 8.0.302
+  [Host]     : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX2
 </code></pre>
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>Method    </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Gen1</th><th>Allocated</th>
+<thead><tr><th>Method    </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;DTO → Proto&#39;</td><td>1.536 &mu;s</td><td>0.0039 &mu;s</td><td>0.0037 &mu;s</td><td>0.1450</td><td>-</td><td>2448 B</td>
-</tr><tr><td>&#39;Proto → byte[]&#39;</td><td>2.075 &mu;s</td><td>0.0053 &mu;s</td><td>0.0047 &mu;s</td><td>-</td><td>-</td><td>-</td>
-</tr><tr><td>&#39;byte[] → Proto&#39;</td><td>1.865 &mu;s</td><td>0.0052 &mu;s</td><td>0.0048 &mu;s</td><td>0.1965</td><td>0.0019</td><td>3296 B</td>
-</tr><tr><td>&#39;Proto → DTO&#39;</td><td>4.250 &mu;s</td><td>0.0051 &mu;s</td><td>0.0043 &mu;s</td><td>0.1526</td><td>-</td><td>2560 B</td>
+</thead><tbody><tr><td>&#39;DTO → Proto&#39;</td><td>1.713 &mu;s</td><td>0.0070 &mu;s</td><td>0.0066 &mu;s</td><td>0.1450</td><td>2448 B</td>
+</tr><tr><td>&#39;Proto → byte[]&#39;</td><td>2.060 &mu;s</td><td>0.0052 &mu;s</td><td>0.0048 &mu;s</td><td>-</td><td>-</td>
+</tr><tr><td>&#39;byte[] → Proto&#39;</td><td>1.936 &mu;s</td><td>0.0096 &mu;s</td><td>0.0080 &mu;s</td><td>0.1945</td><td>3296 B</td>
+</tr><tr><td>&#39;Proto → DTO&#39;</td><td>4.281 &mu;s</td><td>0.0184 &mu;s</td><td>0.0144 &mu;s</td><td>0.1526</td><td>2560 B</td>
 </tr></tbody></table>
 </body>
 </html>

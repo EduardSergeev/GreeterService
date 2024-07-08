@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>StringArrayDeserialisation-20231215-184243</title>
+<title>StringArrayDeserialisation-20240708-093449</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,26 +13,26 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet v0.13.10, Ubuntu 22.04.3 LTS (Jammy Jellyfish)
+BenchmarkDotNet v0.13.10, Ubuntu 22.04.4 LTS (Jammy Jellyfish)
 AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
-.NET SDK 8.0.100
-  [Host]     : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
-  DefaultJob : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+.NET SDK 8.0.302
+  [Host]     : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX2
 </code></pre>
 <pre><code></code></pre>
 
 <table>
 <thead><tr><th>Method        </th><th>Size</th><th>Mean </th><th>Error</th><th>StdDev</th><th>Ratio</th><th>Gen0</th><th>Gen1</th><th>Allocated</th><th>Alloc Ratio</th>
 </tr>
-</thead><tbody><tr><td>&#39;byte[] → string[]&#39;</td><td>1</td><td>276.3 ns</td><td>1.69 ns</td><td>1.58 ns</td><td>0.90</td><td>0.0048</td><td>-</td><td>416 B</td><td>0.71</td>
-</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>1</td><td>326.2 ns</td><td>1.96 ns</td><td>1.84 ns</td><td>1.07</td><td>0.0062</td><td>-</td><td>528 B</td><td>0.90</td>
-</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>1</td><td>305.9 ns</td><td>1.13 ns</td><td>1.05 ns</td><td>1.00</td><td>0.0067</td><td>-</td><td>584 B</td><td>1.00</td>
-</tr><tr><td>&#39;byte[] → string[]&#39;</td><td>10</td><td>614.8 ns</td><td>1.99 ns</td><td>1.77 ns</td><td>0.54</td><td>0.0114</td><td>-</td><td>1024 B</td><td>0.88</td>
-</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>10</td><td>1,420.3 ns</td><td>9.92 ns</td><td>8.79 ns</td><td>1.25</td><td>0.0153</td><td>-</td><td>1384 B</td><td>1.18</td>
-</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>10</td><td>1,132.2 ns</td><td>7.67 ns</td><td>7.17 ns</td><td>1.00</td><td>0.0134</td><td>-</td><td>1168 B</td><td>1.00</td>
-</tr><tr><td>&#39;byte[] → string[]&#39;</td><td>100</td><td>5,091.5 ns</td><td>13.93 ns</td><td>10.88 ns</td><td>0.29</td><td>0.1907</td><td>0.0076</td><td>16392 B</td><td>1.05</td>
-</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>100</td><td>11,697.0 ns</td><td>103.45 ns</td><td>96.76 ns</td><td>0.67</td><td>0.2289</td><td>-</td><td>19448 B</td><td>1.24</td>
-</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>100</td><td>17,508.7 ns</td><td>55.64 ns</td><td>52.05 ns</td><td>1.00</td><td>0.1831</td><td>-</td><td>15632 B</td><td>1.00</td>
+</thead><tbody><tr><td>&#39;byte[] → string[]&#39;</td><td>1</td><td>307.7 ns</td><td>2.06 ns</td><td>1.82 ns</td><td>0.94</td><td>0.0048</td><td>-</td><td>416 B</td><td>0.71</td>
+</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>1</td><td>345.3 ns</td><td>1.20 ns</td><td>1.06 ns</td><td>1.05</td><td>0.0062</td><td>-</td><td>528 B</td><td>0.90</td>
+</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>1</td><td>327.7 ns</td><td>1.59 ns</td><td>1.41 ns</td><td>1.00</td><td>0.0067</td><td>-</td><td>584 B</td><td>1.00</td>
+</tr><tr><td>&#39;byte[] → string[]&#39;</td><td>10</td><td>622.8 ns</td><td>1.92 ns</td><td>1.60 ns</td><td>0.51</td><td>0.0114</td><td>-</td><td>1024 B</td><td>0.88</td>
+</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>10</td><td>1,400.9 ns</td><td>4.64 ns</td><td>4.34 ns</td><td>1.15</td><td>0.0153</td><td>-</td><td>1384 B</td><td>1.18</td>
+</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>10</td><td>1,219.9 ns</td><td>6.11 ns</td><td>5.72 ns</td><td>1.00</td><td>0.0134</td><td>-</td><td>1168 B</td><td>1.00</td>
+</tr><tr><td>&#39;byte[] → string[]&#39;</td><td>100</td><td>5,220.0 ns</td><td>29.47 ns</td><td>27.56 ns</td><td>0.30</td><td>0.1907</td><td>0.0076</td><td>16392 B</td><td>1.05</td>
+</tr><tr><td>&#39;byte[] → string?[]&#39;</td><td>100</td><td>12,211.3 ns</td><td>45.89 ns</td><td>42.92 ns</td><td>0.69</td><td>0.2289</td><td>-</td><td>19448 B</td><td>1.24</td>
+</tr><tr><td>&#39;JSON → string?[]&#39;</td><td>100</td><td>17,585.7 ns</td><td>21.02 ns</td><td>18.64 ns</td><td>1.00</td><td>0.1831</td><td>-</td><td>15632 B</td><td>1.00</td>
 </tr></tbody></table>
 </body>
 </html>
