@@ -2,7 +2,7 @@ using Greeter.Common;
 
 namespace Greeter.Services;
 
-public class GreeterExtended : IGreeterExtendedService
+public class GreeterExtended : IGreeterExtendedService, IGreeterStreamedService
 {
     private Version Version { get; }
 

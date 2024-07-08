@@ -20,11 +20,8 @@ var client = new Greeter.Common.Grpc.GreeterServiceGrpcClient(config, false);
 WriteLine(client.SayHello("World"));
 WriteLine(await client.SayHelloAsync("Async"));
 
-
 WriteLine();
 
-
-var clientEx = new Greeter.Common.Grpc.GreeterExtendedServiceGrpcClient(config, false);
 
 var person = new Person
 {
@@ -77,41 +74,46 @@ void WriteGreeting(Greeting greeting)
 }
 
 
-WriteGreeting(clientEx.SayGreeting(person));
-WriteGreeting(await clientEx.SayGreetingAsync(person));
+var extendedClient = new Greeter.Common.Grpc.GreeterExtendedServiceGrpcClient(config, false);
 
-foreach(var greeting in clientEx.SayGreetings(people))
+WriteGreeting(extendedClient.SayGreeting(person));
+WriteGreeting(await extendedClient.SayGreetingAsync(person));
+
+
+var streamedClient = new Greeter.Common.Grpc.GreeterStreamedServiceGrpcClient(config, false);
+
+foreach(var greeting in streamedClient.SayGreetings(people))
 {
     WriteGreeting(greeting);
 }
-await foreach(var greeting in clientEx.SayGreetingsAsync(people))
+await foreach(var greeting in streamedClient.SayGreetingsAsync(people))
 {
     WriteGreeting(greeting);
 }
 
-foreach(var line in clientEx.StreamGreeting(person))
+foreach(var line in streamedClient.StreamGreeting(person))
 {
     WriteLine(line);
 }
-await foreach(var line in clientEx.StreamGreetingAsync(person))
-{
-    WriteLine(line);
-}
-
-foreach(var line in clientEx.StreamGreetings(people, new[] { "---" }))
-{
-    WriteLine(line);
-}
-await foreach(var line in clientEx.StreamGreetingsAsync(people, new[] { "---", "---", "---" }))
+await foreach(var line in streamedClient.StreamGreetingAsync(person))
 {
     WriteLine(line);
 }
 
-foreach(var line in clientEx.StreamGreetingsEx(people.Select((p, i) => (p, new[] { $"-{i}-" }))))
+foreach(var line in streamedClient.StreamGreetings(people, new[] { "---" }))
 {
     WriteLine(line);
 }
-await foreach(var line in clientEx.StreamGreetingsExAsync(people.Select(p => (p, new[] { "---", $"{DateTime.Now.Millisecond}", "---" }))))
+await foreach(var line in streamedClient.StreamGreetingsAsync(people, new[] { "---", "---", "---" }))
+{
+    WriteLine(line);
+}
+
+foreach(var line in streamedClient.StreamGreetingsEx(people.Select((p, i) => (p, new[] { $"-{i}-" }))))
+{
+    WriteLine(line);
+}
+await foreach(var line in streamedClient.StreamGreetingsExAsync(people.Select(p => (p, new[] { "---", $"{DateTime.Now.Millisecond}", "---" }))))
 {
     await Task.Delay(TimeSpan.FromMilliseconds(1));
     WriteLine(line);

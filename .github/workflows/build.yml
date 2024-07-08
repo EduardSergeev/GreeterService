@@ -12,7 +12,7 @@ jobs:
   service:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set version
       uses: EduardSergeev/project-version-action@v6.5
       with:
@@ -24,7 +24,7 @@ jobs:
   client:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set version
       uses: EduardSergeev/project-version-action@v6.5
       with:
@@ -36,7 +36,7 @@ jobs:
   dotnet-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set version
       uses: EduardSergeev/project-version-action@v6.5
       with:
@@ -48,7 +48,7 @@ jobs:
   docker-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set version
       uses: EduardSergeev/project-version-action@v6.5
       with:
@@ -76,7 +76,7 @@ jobs:
           - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set version
       uses: EduardSergeev/project-version-action@v6.5
       with:
@@ -92,7 +92,7 @@ jobs:
         cd Greeter.Bench
         dotnet run -c Release -- -a ../.bench -f "*"
     - name: Upload ${{ matrix.os }} benchmarks results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.os }}
         path: |
@@ -110,7 +110,7 @@ jobs:
       DOCS_DIR: ${{ github.workspace }}/docs
     steps:    
     - name: Check out ${{ env.DOCS_BRANCH }} branch
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: ${{ env.DOCS_BRANCH }}
     - name: Set version
@@ -123,7 +123,7 @@ jobs:
         git rm -r ${{ env.DOCS_DIR }}
         mkdir ${{ env.DOCS_DIR }}
     - name: Download benchmark results
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         path: ${{ env.DOCS_DIR }}
     - name: Update documentation
